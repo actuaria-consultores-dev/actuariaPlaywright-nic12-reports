@@ -1,0 +1,52 @@
+🎭️ [ImpuestosDiferidos-MisInformesNic12] Preparando entorno para Mis Informes NIC12
+🔐 [ImpuestosDiferidos-MisInformesNic12] Iniciando sesión (de***@[OCULTO])
+🔐 [LoginPage] Iniciando sesión (de***@[OCULTO])
+✅ [LoginPage] Login completado
+✅ [ImpuestosDiferidos-MisInformesNic12] Sesión iniciada correctamente
+🔍 [ImpuestosDiferidos-MisInformesNic12] Dashboard cargado correctamente
+🎭️ [TC12] Verificación de la tabla de informes pendientes
+ℹ️  [TC12] Navegando a la tabla de informes → seleccionando Informes Pendientes
+🎭️ [MisInformesNic12-TableWorkflow] Iniciando flujo: verificar tabla de informes de Impuestos Diferidos
+🔍 [MisInformesNic12-TableWorkflow] Navegando a /dashboard/impuestos-diferidos/mis-informes-nic12
+🔍 [ImpuestosDiferidosPage] Navegando a Mis Informes NIC12: /dashboard/impuestos-diferidos/mis-informes-nic12
+✅ [ImpuestosDiferidosPage] Navegación a Mis Informes NIC12 completada
+✅ [MisInformesNic12-TableWorkflow] URL de Mis Informes NIC12 verificada
+ℹ️  [ImpuestosDiferidosPage] Seleccionando pestaña "Informes Pendientes"
+⏳ [ImpuestosDiferidosPage] Esperando que los datos de la tabla carguen (footer de paginación)
+✅ [ImpuestosDiferidosPage] Datos de la tabla cargados (paginación visible)
+✅ [ImpuestosDiferidosPage] Pestaña "Informes Pendientes" seleccionada y tabla visible
+✅ [MisInformesNic12-TableWorkflow] Pestaña de informes pendientes seleccionada
+ℹ️  [ImpuestosDiferidosPage] Verificando columnas de la tabla de informes
+ℹ️  [ImpuestosDiferidosPage] Columnas encontradas: 6, esperadas: 6
+ℹ️  [ImpuestosDiferidosPage] Columna 1: "FECHA CREACIÓN"
+ℹ️  [ImpuestosDiferidosPage] Columna 2: "NOMBRE DE LA EMPRESA"
+ℹ️  [ImpuestosDiferidosPage] Columna 3: "RUC"
+ℹ️  [ImpuestosDiferidosPage] Columna 4: "NÚMERO DE PROCESO"
+ℹ️  [ImpuestosDiferidosPage] Columna 5: "ESTADO"
+ℹ️  [ImpuestosDiferidosPage] Columna 6: "ACCIÓN"
+✅ [ImpuestosDiferidosPage] Todas las columnas de la tabla verificadas correctamente
+✅ [MisInformesNic12-TableWorkflow] Columnas de la tabla verificadas correctamente
+ℹ️  [ImpuestosDiferidosPage] Extrayendo datos de la tabla de informes
+✅ [ImpuestosDiferidosPage] Filas de datos cargadas en la tabla
+ℹ️  [ImpuestosDiferidosPage] Se encontraron 5 fila(s) en la tabla
+ℹ️  [MisInformesNic12-TableWorkflow] Se encontraron 5 fila(s) en la página actual
+ℹ️  [MisInformesNic12-TableWorkflow] Fila 1: 27/08/2026 | DEMOGRAFIX S.A. | 1006487552001 | No disponible | Pendiente | 
+ℹ️  [MisInformesNic12-TableWorkflow] Fila 2: 13/08/2026 | DEMOGRAFIX S.A. | 1006487552001 | No disponible | Pendiente | 
+ℹ️  [MisInformesNic12-TableWorkflow] Fila 3: 21/01/2026 | DEMOGRAFIX S.A. | 1006487552001 | No disponible | Pendiente | 
+ℹ️  [MisInformesNic12-TableWorkflow] Fila 4: 27/08/2026 | DEMOGRAFIX S.A. | 1006487552001 | No disponible | Pendiente | 
+ℹ️  [MisInformesNic12-TableWorkflow] Fila 5: 27/08/2026 | DEMOGRAFIX S.A. | 1006487552001 | No disponible | Pendiente | 
+ℹ️  [ImpuestosDiferidosPage] Extrayendo total de informes desde la paginación
+ℹ️  [ImpuestosDiferidosPage] Texto de paginación: "1-5 de 305"
+✅ [ImpuestosDiferidosPage] Total de informes extraído: 305
+ℹ️  [MisInformesNic12-TableWorkflow] Total de informes pendientes: 305
+
+✅ ✅ ✅ [MisInformesNic12-TableWorkflow] Verificación de la tabla de informes pendientes completada
+
+✅ [TC12] Tabla de informes pendientes verificada correctamente
+
+✅ ✅ ✅ [TC12] TC12 finalizado exitosamente
+
+
+ℹ️  3 non-blocking error(s) ignored by filter.
+
+📋 4 console message(s) logged to stderr

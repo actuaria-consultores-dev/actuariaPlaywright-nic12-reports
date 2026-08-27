@@ -1,0 +1,11 @@
+[LOG] Using Firebase Production Services for environment: stage [5:50:56 PM]
+[LOG] trackEvent view_login {timestamp: 2026-08-27T17:50:57.077Z} [5:50:57 PM]
+[LOG] Using Firebase Production Services for environment: stage [5:50:59 PM]
+⚠️ Uncaught exception: AxiosError$1
+❌ CONSOLE ERROR: Uncaught exception: AxiosError$1
+
+⚠️  1 error(s) detected during test execution:
+  1. Uncaught exception: AxiosError$1
+
+⚠️  1 error(s) detected during test execution:
+  1. Uncaught exception: AxiosError$1

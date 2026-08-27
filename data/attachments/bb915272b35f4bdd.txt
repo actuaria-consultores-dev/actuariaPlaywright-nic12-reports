@@ -1,0 +1,60 @@
+🎭️ [ImpuestosDiferidos-CrearNuevo] Preparando entorno para Impuestos Diferidos
+🔐 [ImpuestosDiferidos-CrearNuevo] Iniciando sesión (de***@[OCULTO])
+🔐 [LoginPage] Iniciando sesión (de***@[OCULTO])
+✅ [LoginPage] Login completado
+✅ [ImpuestosDiferidos-CrearNuevo] Sesión iniciada correctamente
+🔍 [ImpuestosDiferidos-CrearNuevo] Dashboard cargado correctamente
+🎭️ [TC03] Validación de archivo inválido en Paso 3
+ℹ️  [TC03] Verificando manejo de archivo inválido
+
+======================================================================
+🎯 VALIDANDO ARCHIVO INVÁLIDO
+======================================================================
+   • archivo: impuestosdif-noHappypath.xlsx
+======================================================================
+
+📋 Navegando a Impuestos Diferidos...
+✅ Navegación completada
+
+📍 Paso 1: Seleccionando año de evaluación
+📊 [ImpuestosDiferidosPage] Paso 1 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando año de evaluación: 2024
+✅ [ImpuestosDiferidosPage] Año 2024 seleccionado
+✅ [SelectEvaluationYearStep] Paso 1 completado
+
+📍 Paso 2: Seleccionando razón del estudio
+📊 [ImpuestosDiferidosPage] Paso 2 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando razón del estudio
+ℹ️  [ImpuestosDiferidosPage] Realizando scroll al fondo de la página
+✅ [ImpuestosDiferidosPage] Scroll al fondo completado - página completamente visible
+✅ [ImpuestosDiferidosPage] Estudio disponible seleccionado
+✅ [SelectReasonStep] Paso 2 completado
+📊 [ImpuestosDiferidosPage] Paso 3 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando opción "Sí tengo saldos contables"...
+ℹ️  [ImpuestosDiferidosPage] Acción: Hace visible el botón "Descargar Plantilla" y controles de carga
+✅ [ImpuestosDiferidosPage] ✅ Opción "Sí" seleccionada - Botón de descarga y controles de carga están ahora disponibles
+ℹ️  [ImpuestosDiferidosPage] 📤 Iniciando carga de archivo de saldos contables
+ℹ️  [ImpuestosDiferidosPage]    • Nombre del archivo: impuestosdif-noHappypath.xlsx
+ℹ️  [ImpuestosDiferidosPage]    • Ruta local: ./tests/data/documents/impuestosdif-noHappypath.xlsx
+ℹ️  [ImpuestosDiferidosPage]    • Destino: Servidor para validación de estructura y datos
+📁 [ImpuestosDiferidosPage] Cargando archivo: impuestosdif-noHappypath.xlsx
+✅ [ImpuestosDiferidosPage] ✅ Archivo "impuestosdif-noHappypath.xlsx" cargado en el formulario - Enviando al servidor para validación
+📊 [ImpuestosDiferidosPage] Paso 3 de 6 verificado
+
+======================================================================
+🎯 VERIFICANDO ESTADO DEL BOTÓN
+======================================================================
+   • estado: DESHABILITADO
+======================================================================
+
+ℹ️  [ImpuestosDiferidosPage] Estado esperado: DESHABILITADO
+✅ [ImpuestosDiferidosPage] Botón Continuar está DESHABILITADO
+✅ [VerifyInvalidFileUpload] Validación de archivo inválido completada exitosamente
+✅ [TC03] Validación de archivo inválido completada
+
+✅ ✅ ✅ [TC03] TC03 finalizado exitosamente
+
+
+ℹ️  4 non-blocking error(s) ignored by filter.
+
+📋 3 console message(s) logged to stderr

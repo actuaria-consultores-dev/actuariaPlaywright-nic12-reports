@@ -1,0 +1,31 @@
+🎭️ [ImpuestosDiferidos-CrearNuevo] Preparando entorno para Impuestos Diferidos
+🔐 [ImpuestosDiferidos-CrearNuevo] Iniciando sesión (de***@[OCULTO])
+🔐 [LoginPage] Iniciando sesión (de***@[OCULTO])
+✅ [LoginPage] Login completado
+✅ [ImpuestosDiferidos-CrearNuevo] Sesión iniciada correctamente
+🔍 [ImpuestosDiferidos-CrearNuevo] Dashboard cargado correctamente
+🎭️ [TC01] Mensaje de error sin empleados en período seleccionado
+ℹ️  [TC01] Ejecutando flujo de validación: sin empleados
+
+======================================================================
+🎯 VALIDANDO ERROR: SIN EMPLEADOS
+======================================================================
+   • ano: 2023
+======================================================================
+
+📋 Navegando a Impuestos Diferidos...
+✅ Navegación completada
+📊 [ImpuestosDiferidosPage] Paso 1 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando año de evaluación: 2023
+✅ [ImpuestosDiferidosPage] Año 2023 seleccionado
+ℹ️  [ImpuestosDiferidosPage] Verificando mensaje de error: "No se encontró un pedido"
+✅ [ImpuestosDiferidosPage] Mensaje de error verificado
+✅ [VerifyNoEmployeesError] Validación de error sin empleados completada exitosamente
+✅ [TC01] Validación de error sin empleados completada
+
+✅ ✅ ✅ [TC01] TC01 finalizado exitosamente
+
+
+ℹ️  4 non-blocking error(s) ignored by filter.
+
+📋 3 console message(s) logged to stderr

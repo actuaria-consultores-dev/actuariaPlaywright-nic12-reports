@@ -1,0 +1,235 @@
+🎭️ [ImpuestosDiferidos-DemografixCompany] Preparando entorno para Impuestos Diferidos con DEMOGRAFIX S.A.
+🔐 [ImpuestosDiferidos-DemografixCompany] Iniciando sesión (de***@[OCULTO])
+🔐 [LoginPage] Iniciando sesión (de***@[OCULTO])
+✅ [LoginPage] Login completado
+✅ [ImpuestosDiferidos-DemografixCompany] Sesión iniciada correctamente
+🔍 [ImpuestosDiferidos-DemografixCompany] Dashboard cargado correctamente
+🎭️ [TC04] Carga de archivo válido con descarga de plantilla (DEMOGRAFIX)
+ℹ️  [TC04] Descargando plantilla → Validando estructura → Cargando archivo válido
+
+======================================================================
+🎯 INICIANDO FLUJO COMPLETO DE IMPUESTOS DIFERIDOS
+======================================================================
+   • Ano: 2024
+   • Opción saldos: Con archivo
+======================================================================
+
+ℹ️  [ImpuestosDiferidosWorkflow] Listener de captura de ID de documento activado
+ℹ️  [ImpuestosDiferidosWorkflow] ConfirmarPedidoInterceptor activado - capturando ID de documento del flujo
+📋 Navegando a Impuestos Diferidos...
+✅ Navegación completada
+
+📍 Paso 1: Seleccionando año de evaluación
+📊 [ImpuestosDiferidosPage] Paso 1 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando año de evaluación: 2024
+✅ [ImpuestosDiferidosPage] Año 2024 seleccionado
+✅ [SelectEvaluationYearStep] Paso 1 completado
+
+📍 Paso 2: Seleccionando razón del estudio
+📊 [ImpuestosDiferidosPage] Paso 2 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando razón del estudio
+ℹ️  [ImpuestosDiferidosPage] Realizando scroll al fondo de la página
+✅ [ImpuestosDiferidosPage] Scroll al fondo completado - página completamente visible
+✅ [ImpuestosDiferidosPage] Estudio disponible seleccionado
+✅ [SelectReasonStep] Paso 2 completado
+
+📍 Paso 3: Configurando saldos contables
+ℹ️  [ConfigureSaldosContablesStep] Modo: Subida de archivo de saldos contables
+ℹ️  [ConfigureSaldosContablesStep]   • Archivo: impuestosdif2.xlsx
+ℹ️  [ConfigureSaldosContablesStep]   • Descargar plantilla: SÍ
+ℹ️  [ConfigureSaldosContablesStep]   • Validación esperada: Backend valida estructura y contenido del Excel
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "swJOBLuWFgyGcI2FQHx3"
+}
+📊 [ImpuestosDiferidosPage] Paso 3 de 6 verificado
+ℹ️  [ConfigureSaldosContablesStep] Paso 3.1 - Seleccionando opción "Sí" para saldos contables
+ℹ️  [ImpuestosDiferidosPage] Seleccionando opción "Sí tengo saldos contables"...
+ℹ️  [ImpuestosDiferidosPage] Acción: Hace visible el botón "Descargar Plantilla" y controles de carga
+✅ [ImpuestosDiferidosPage] ✅ Opción "Sí" seleccionada - Botón de descarga y controles de carga están ahora disponibles
+✅ [ConfigureSaldosContablesStep] Opción "Sí" seleccionada - mostrando controles de carga
+
+======================================================================
+🎯 Paso 3.2 - DESCARGANDO Y VALIDANDO PLANTILLA
+======================================================================
+   • tipoValidacion: Estructura de archivo Excel
+   • columnasRequeridas: Nombre,Cédula,Saldo acumulado AID JP,Saldo acumulado AID BD
+======================================================================
+
+ℹ️  [ImpuestosDiferidosPage] 🔍 Buscando botón de descarga: "Descargar Plantilla"
+ℹ️  [ImpuestosDiferidosPage] ✅ Botón de descarga está visible
+ℹ️  [ImpuestosDiferidosPage] 🖱️ Haciendo clic en botón de descarga...
+ℹ️  [ImpuestosDiferidosPage] 📄 Nombre del archivo descargado: plantilla.xlsx
+✅ [ImpuestosDiferidosPage] 📥 Plantilla de Impuestos Diferidos guardada: ./tests/data/download/plantilla.xlsx
+ℹ️  [ImpuestosDiferidosPage] 🔎 Validando estructura y contenido de la plantilla...
+📂 Archivo encontrado: ./tests/data/download/plantilla.xlsx
+📊 Hojas encontradas: Saldos por empleado
+🔍 Validando estructura de plantilla de Impuestos Diferidos...
+📋 Total de columnas encontradas: 4
+📋 Headers: Nombre, Cédula, Saldo acumulado AID JP, Saldo acumulado AID BD
+✅ Headers encontrados: 4 columnas
+  ✅ Nombre encontrado
+  ✅ Cédula encontrado
+  ✅ Saldo acumulado AID JP encontrado
+  ✅ Saldo acumulado AID BD encontrado
+✅ 4/4 columnas requeridas encontradas
+✅ Se encontraron 616 filas (incluyendo header)
+✅ Plantilla de Impuestos Diferidos validada correctamente
+📊 Estructura de plantilla verificada - lista para datos de saldos
+✅ [ImpuestosDiferidosPage] ✅ Plantilla de Impuestos Diferidos validada correctamente
+✅ [ImpuestosDiferidosPage] 🗑️ Archivo de plantilla eliminado correctamente: ./tests/data/download/plantilla.xlsx
+✅ [ConfigureSaldosContablesStep] ✅ Plantilla descargada y validada exitosamente
+ℹ️  [ConfigureSaldosContablesStep] Estructura verificada: 4 columnas requeridas presentes
+⏳ [ConfigureSaldosContablesStep] Pausa de 1.5 segundos para estabilización de UI
+
+======================================================================
+🎯 Paso 3.3 - SUBIENDO ARCHIVO VÁLIDO DE SALDOS CONTABLES
+======================================================================
+   • archivo: impuestosdif2.xlsx
+   • validaciónEsperada: Backend valida estructura y datos
+======================================================================
+
+ℹ️  [ImpuestosDiferidosPage] 📤 Iniciando carga de archivo de saldos contables
+ℹ️  [ImpuestosDiferidosPage]    • Nombre del archivo: impuestosdif2.xlsx
+ℹ️  [ImpuestosDiferidosPage]    • Ruta local: ./tests/data/documents/impuestosdif2.xlsx
+ℹ️  [ImpuestosDiferidosPage]    • Destino: Servidor para validación de estructura y datos
+📁 [ImpuestosDiferidosPage] Cargando archivo: impuestosdif2.xlsx
+✅ [ImpuestosDiferidosPage] ✅ Archivo "impuestosdif2.xlsx" cargado en el formulario - Enviando al servidor para validación
+✅ [ConfigureSaldosContablesStep] Archivo "impuestosdif2.xlsx" subido al servidor
+⏳ [ConfigureSaldosContablesStep] Esperando 5 segundos para procesamiento del archivo en el servidor
+ℹ️  [ConfigureSaldosContablesStep] Verificando estado del botón Continuar (archivo válido)
+
+======================================================================
+🎯 VERIFICANDO ESTADO DEL BOTÓN
+======================================================================
+   • estado: HABILITADO
+======================================================================
+
+ℹ️  [ImpuestosDiferidosPage] Estado esperado: HABILITADO
+✅ [ImpuestosDiferidosPage] Botón Continuar está HABILITADO
+✅ [ConfigureSaldosContablesStep] ✅ Botón Continuar se habilitó correctamente después de validación
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "swJOBLuWFgyGcI2FQHx3"
+}
+✅ [ConfigureSaldosContablesStep] Paso 3 completado
+
+📍 Paso 4: Configurando tasa impositiva
+📊 [ImpuestosDiferidosPage] Paso 4 de 6 verificado
+ℹ️  [ConfigureTaxRateStep] Usando tasa impositiva estándar
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "swJOBLuWFgyGcI2FQHx3"
+}
+✅ [ConfigureTaxRateStep] Paso 4 completado
+
+📍 Paso 6: Confirmando pedido
+ℹ️  [ConfirmarPedidoStep] MODO MOCK: armando interceptación antes de hacer clic en "Confirmar pedido"
+
+======================================================================
+🎯 ARMANDO INTERCEPTACIÓN DE ENDPOINTS (MOCKOON-STYLE)
+======================================================================
+   • ingresarPedido: **/apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/ingresar-pedido
+   • workflowEstado: [object Object]
+   • paso6: **/apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso6
+   • upsertDocumento: [object Object]
+   • consultarVentaEfectiva: **/apinic12-sql5tfrt5q-uc.a.run.app/salesforce/consultar_venta_efectiva/*
+======================================================================
+
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso5 -> 200
+✅ [ImpuestosDiferidosWorkflow] Rutas de interceptación registradas
+ℹ️  [ImpuestosDiferidosPage] Buscando botón "Confirmar pedido" en Paso 6
+👆 [ImpuestosDiferidosPage] click: Confirmar pedido
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "swJOBLuWFgyGcI2FQHx3"
+}
+ℹ️  [ImpuestosDiferidosWorkflow] Interceptado: PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/swJOBLuWFgyGcI2FQHx3
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/swJOBLuWFgyGcI2FQHx3 -> 200
+✅ [ImpuestosDiferidosPage] Botón "Confirmar pedido" clickeado
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso5 -> 200
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] POST https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/query/custom -> 200
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] POST https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/query/custom -> 200
+ℹ️  [ImpuestosDiferidosWorkflow] Interceptado: POST https://apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/ingresar-pedido
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] POST https://apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/ingresar-pedido -> 200
+ℹ️  [ImpuestosDiferidosWorkflow] Interceptado: PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso6
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso6 -> 200
+ℹ️  [ImpuestosDiferidosWorkflow] Interceptado (workflow estado): GET https://apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/status?name=projects%2F72574958900%2Flocations%2Fus-central1%2Fworkflows%2Fwf_creacion_pedido_estandar_stage%2Fexecutions%2Fdd38b53b-479d-4038-8403-f50b32bd30fc
+ℹ️  [ImpuestosDiferidosWorkflow] Interceptado: GET https://apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/status?name=projects%2F72574958900%2Flocations%2Fus-central1%2Fworkflows%2Fwf_creacion_pedido_estandar_stage%2Fexecutions%2Fdd38b53b-479d-4038-8403-f50b32bd30fc
+
+======================================================================
+🎯 📡 ENDPOINTS INTERCEPTADOS (MOCKOON-STYLE)
+======================================================================
+   • total: 4
+======================================================================
+
+
+======================================================================
+🎯 ▶ POST https://apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/ingresar-pedido
+======================================================================
+   • status: 200
+   • response: [object Object]
+======================================================================
+
+
+======================================================================
+🎯 ▶ GET https://apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/status?name=projects%2F72574958900%2Flocations%2Fus-central1%2Fworkflows%2Fwf_creacion_pedido_estandar_stage%2Fexecutions%2Fdd38b53b-479d-4038-8403-f50b32bd30fc
+======================================================================
+   • status: 200
+   • response: [object Object]
+======================================================================
+
+
+======================================================================
+🎯 ▶ PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso6
+======================================================================
+   • status: 200
+   • response: [object Object]
+======================================================================
+
+
+======================================================================
+🎯 ▶ PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/swJOBLuWFgyGcI2FQHx3
+======================================================================
+   • status: 200
+   • response: [object Object]
+======================================================================
+
+ℹ️  [ConfirmarPedidoStep] Verificando pantalla final de confirmación
+ℹ️  [ImpuestosDiferidosPage] Verificando pantalla final de confirmación del pedido
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] GET https://apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/status?name=projects%2F72574958900%2Flocations%2Fus-central1%2Fworkflows%2Fwf_creacion_pedido_estandar_stage%2Fexecutions%2Fdd38b53b-479d-4038-8403-f50b32bd30fc -> 200
+ℹ️  [ImpuestosDiferidosWorkflow] Interceptado: PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso6
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso6 -> 200
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "swJOBLuWFgyGcI2FQHx3"
+}
+ℹ️  [ImpuestosDiferidosWorkflow] Interceptado: PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/swJOBLuWFgyGcI2FQHx3
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/swJOBLuWFgyGcI2FQHx3 -> 200
+ℹ️  [ImpuestosDiferidosWorkflow] Interceptado: GET https://apinic12-sql5tfrt5q-uc.a.run.app/salesforce/consultar_venta_efectiva/302514
+✅ [ImpuestosDiferidosPage] Confirmación del pedido visible - fecha de entrega / proceso / valoración
+✅ [ConfirmarPedidoStep] Confirmación del pedido verificada
+📊 [ConfirmarPedidoStep] Endpoints interceptados: 5 de los esperados
+✅ [ConfirmarPedidoStep] Pedido confirmado - endpoints interceptados correctamente
+
+✅ ✅ ✅ [ImpuestosDiferidosWorkflow] ✅ FLUJO COMPLETO DE IMPUESTOS DIFERIDOS FINALIZADO EXITOSAMENTE
+
+
+======================================================================
+🎯 RESUMEN DE EJECUCIÓN
+======================================================================
+   • pasos: 6 pasos completados (con confirmación de pedido)
+   • saldosContables: Con archivo
+   • plantillaDescargada: Sí
+   • tasaImpositiva: Estándar
+======================================================================
+
+✅ [TC04] Flujo completado - archivo procesado correctamente
+
+✅ ✅ ✅ [TC04] TC04 finalizado exitosamente
+
+
+ℹ️  4 non-blocking error(s) ignored by filter.
+
+📋 3 console message(s) logged to stderr
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] GET https://apinic12-sql5tfrt5q-uc.a.run.app/salesforce/consultar_venta_efectiva/302514 -> 200

@@ -1,0 +1,56 @@
+🎭️ [ImpuestosDiferidos-Lote2] Preparando entorno para Impuestos Diferidos
+🔐 [ImpuestosDiferidos-Lote2] Iniciando sesión (de***@[OCULTO])
+🔐 [LoginPage] Iniciando sesión (de***@[OCULTO])
+✅ [LoginPage] Login completado
+✅ [ImpuestosDiferidos-Lote2] Sesión iniciada correctamente
+🔍 [ImpuestosDiferidos-Lote2] Dashboard cargado correctamente
+🎭️ [TC05] Validación: ingreso manual sin autorización
+⚠️  [TC05] Sin checkbox de autorización - botón debe estar deshabilitado
+
+======================================================================
+🎯 VALIDANDO INGRESO MANUAL SIN AUTORIZACIÓN
+======================================================================
+======================================================================
+
+📋 Navegando a Impuestos Diferidos...
+✅ Navegación completada
+
+📍 Paso 1: Seleccionando año de evaluación
+📊 [ImpuestosDiferidosPage] Paso 1 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando año de evaluación: 2024
+✅ [ImpuestosDiferidosPage] Año 2024 seleccionado
+✅ [SelectEvaluationYearStep] Paso 1 completado
+
+📍 Paso 2: Seleccionando razón del estudio
+📊 [ImpuestosDiferidosPage] Paso 2 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando razón del estudio
+ℹ️  [ImpuestosDiferidosPage] Realizando scroll al fondo de la página
+✅ [ImpuestosDiferidosPage] Scroll al fondo completado - página completamente visible
+✅ [ImpuestosDiferidosPage] Estudio disponible seleccionado
+✅ [SelectReasonStep] Paso 2 completado
+📊 [ImpuestosDiferidosPage] Paso 3 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Ingresando saldos contables manualmente
+✅ [ImpuestosDiferidosPage] Seleccionado: No (ingreso manual)
+⚠️  [ImpuestosDiferidosPage] Estimación NO autorizada (checkbox desmarcado)
+ℹ️  [ImpuestosDiferidosPage] AID Final Jubilación: $300
+ℹ️  [ImpuestosDiferidosPage] AID Final Desahucio: $150
+✅ [ImpuestosDiferidosPage] Saldos manuales ingresados
+⏳ [VerifyManualEntryNoAuth] Esperando actualización de página después del ingreso manual
+
+======================================================================
+🎯 VERIFICANDO ESTADO DEL BOTÓN
+======================================================================
+   • estado: DESHABILITADO
+======================================================================
+
+ℹ️  [ImpuestosDiferidosPage] Estado esperado: DESHABILITADO
+✅ [ImpuestosDiferidosPage] Botón Continuar está DESHABILITADO
+✅ [VerifyManualEntryNoAuth] Validación de ingreso manual sin autorización completada exitosamente
+✅ [TC05] Validación sin autorización completada
+
+✅ ✅ ✅ [TC05] TC05 finalizado exitosamente
+
+
+ℹ️  4 non-blocking error(s) ignored by filter.
+
+📋 3 console message(s) logged to stderr

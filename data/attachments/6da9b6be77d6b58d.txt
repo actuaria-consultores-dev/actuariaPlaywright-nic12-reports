@@ -1,0 +1,60 @@
+🎭️ [ImpuestosDiferidos-CrearNuevo] Preparando entorno para Impuestos Diferidos
+🔐 [ImpuestosDiferidos-CrearNuevo] Iniciando sesión (de***@[OCULTO])
+🔐 [LoginPage] Iniciando sesión (de***@[OCULTO])
+✅ [LoginPage] Login completado
+✅ [ImpuestosDiferidos-CrearNuevo] Sesión iniciada correctamente
+🔍 [ImpuestosDiferidos-CrearNuevo] Dashboard cargado correctamente
+🎭️ [TC16] Recuperación de error seleccionando año válido (2023 → 2024)
+ℹ️  [TC16] Ejecutando flujo de recuperación de error de año
+
+======================================================================
+🎯 INICIANDO VALIDACIÓN DE RECUPERACIÓN DE ERROR DE AÑO
+======================================================================
+======================================================================
+
+📋 Navegando a Impuestos Diferidos...
+✅ Navegación completada
+
+📍 Paso 1: Seleccionando año sin datos (2023)
+📊 [ImpuestosDiferidosPage] Paso 1 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando año de evaluación: 2023
+✅ [ImpuestosDiferidosPage] Año 2023 seleccionado
+✅ [VerifyYearErrorRecovery] Año 2023 seleccionado
+ℹ️  [VerifyYearErrorRecovery] Verificando mensaje de error
+ℹ️  [ImpuestosDiferidosPage] Verificando mensaje de error: "No se encontró un pedido o estudio actuarial para"
+✅ [ImpuestosDiferidosPage] Mensaje de error verificado
+✅ [VerifyYearErrorRecovery] Mensaje de error verificado correctamente
+ℹ️  [VerifyYearErrorRecovery] Recuperando del error con recarga de página...
+ℹ️  [ImpuestosDiferidosPage] Iniciando recuperación de error
+ℹ️  [ImpuestosDiferidosPage] Botón de cerrar error clickeado
+ℹ️  [ImpuestosDiferidosPage] Recargando página para limpiar estado de error
+ℹ️  [ImpuestosDiferidosPage] Página recargada
+📋 Navegando a Impuestos Diferidos...
+⚠️  [ImpuestosDiferidosPage] Error durante recarga: Error: locator.click: Error: strict mode violation: getByRole('button', { name: 'Impuestos diferidos' }) resolved to 2 elements:
+    1) <div tabindex="0" role="button" class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters css-1aupu5f">…</div> aka getByRole('button', { name: 'Informe de impuestos diferidos' })
+    2) <div tabindex="0" role="button" class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary css-176mnyt">…</div> aka getByRole('button', { name: 'Impuestos diferidos', exact: true })
+
+Call log:
+  - waiting for getByRole('button', { name: 'Impuestos diferidos' })
+. Continuando sin recarga.
+✅ [ImpuestosDiferidosPage] Recuperación completada
+
+📍 Paso 1: Verificando Step 1 después de recarga
+📊 [ImpuestosDiferidosPage] Paso 1 de 6 verificado
+ℹ️  [VerifyYearErrorRecovery] Seleccionando año válido (2024)
+ℹ️  [ImpuestosDiferidosPage] Seleccionando año de evaluación: 2024
+✅ [ImpuestosDiferidosPage] Año 2024 seleccionado
+✅ [VerifyYearErrorRecovery] Año 2024 seleccionado
+ℹ️  [VerifyYearErrorRecovery] Verificando navegación a Paso 2
+📊 [ImpuestosDiferidosPage] Paso 2 de 6 verificado
+
+✅ ✅ ✅ [VerifyYearErrorRecovery] Flujo de recuperación de error completado exitosamente
+
+✅ [TC16] Recuperación de error de año completada
+
+✅ ✅ ✅ [TC16] TC16 finalizado exitosamente
+
+
+ℹ️  7 non-blocking error(s) ignored by filter.
+
+📋 4 console message(s) logged to stderr

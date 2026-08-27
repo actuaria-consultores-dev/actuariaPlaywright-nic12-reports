@@ -1,0 +1,98 @@
+🎭️ [ImpuestosDiferidos-CrearNuevo] Preparando entorno para Impuestos Diferidos
+🔐 [ImpuestosDiferidos-CrearNuevo] Iniciando sesión (de***@[OCULTO])
+🔐 [LoginPage] Iniciando sesión (de***@[OCULTO])
+✅ [LoginPage] Login completado
+✅ [ImpuestosDiferidos-CrearNuevo] Sesión iniciada correctamente
+🔍 [ImpuestosDiferidos-CrearNuevo] Dashboard cargado correctamente
+🎭️ [TC13] Validación: tasa de impuesto en 100%
+⚠️  [TC13] Tasa 100% debe mostrar error: "Ingrese un porcentaje entre 1 % y 99 %"
+
+======================================================================
+🎯 INICIANDO FLUJO COMPLETO DE IMPUESTOS DIFERIDOS
+======================================================================
+   • Ano: 2024
+   • Opción saldos: Manual/Sin saldos
+======================================================================
+
+ℹ️  [ImpuestosDiferidosWorkflow] Listener de captura de ID de documento activado
+ℹ️  [ImpuestosDiferidosWorkflow] ConfirmarPedidoInterceptor activado - capturando ID de documento del flujo
+📋 Navegando a Impuestos Diferidos...
+✅ Navegación completada
+
+📍 Paso 1: Seleccionando año de evaluación
+📊 [ImpuestosDiferidosPage] Paso 1 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando año de evaluación: 2024
+✅ [ImpuestosDiferidosPage] Año 2024 seleccionado
+✅ [SelectEvaluationYearStep] Paso 1 completado
+
+📍 Paso 2: Seleccionando razón del estudio
+📊 [ImpuestosDiferidosPage] Paso 2 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando razón del estudio
+ℹ️  [ImpuestosDiferidosPage] Realizando scroll al fondo de la página
+✅ [ImpuestosDiferidosPage] Scroll al fondo completado - página completamente visible
+✅ [ImpuestosDiferidosPage] Estudio disponible seleccionado
+✅ [SelectReasonStep] Paso 2 completado
+
+📍 Paso 3: Configurando saldos contables
+ℹ️  [ConfigureSaldosContablesStep] Modo: Ingreso manual de saldos contables
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "RWFGajiIxnDGNVRMPt1O"
+}
+📊 [ImpuestosDiferidosPage] Paso 3 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Ingresando saldos contables manualmente
+✅ [ImpuestosDiferidosPage] Seleccionado: No (ingreso manual)
+✅ [ImpuestosDiferidosPage] Estimación autorizada (checkbox marcado)
+ℹ️  [ImpuestosDiferidosPage] AID Final Jubilación: $500
+ℹ️  [ImpuestosDiferidosPage] AID Final Desahucio: $400
+✅ [ImpuestosDiferidosPage] Saldos manuales ingresados
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "RWFGajiIxnDGNVRMPt1O"
+}
+✅ [ConfigureSaldosContablesStep] Paso 3 completado
+
+📍 Paso 4: Configurando tasa impositiva
+📊 [ImpuestosDiferidosPage] Paso 4 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando opción de tasa: Específico
+✅ [ImpuestosDiferidosPage] Tasa específica seleccionada
+ℹ️  [ImpuestosDiferidosPage] Ingresando tasa de impuesto: 100%
+✅ [ImpuestosDiferidosPage] Tasa 100% ingresada
+
+======================================================================
+🎯 VERIFICANDO MENSAJE DE ERROR DE TASA IMPOSITIVA
+======================================================================
+======================================================================
+
+ℹ️  [ImpuestosDiferidosPage] Buscando mensaje de error
+✅ [ImpuestosDiferidosPage] Error verificado: "Ingrese un porcentaje entre 1 % y 99 %"
+
+======================================================================
+🎯 VERIFICANDO ESTADO DEL BOTÓN
+======================================================================
+   • estado: DESHABILITADO
+======================================================================
+
+ℹ️  [ImpuestosDiferidosPage] Estado esperado: DESHABILITADO
+✅ [ImpuestosDiferidosPage] Botón Continuar está DESHABILITADO
+✅ [ConfigureTaxRateStep] Botón continuar está deshabilitado con tasa inválida
+✅ [ConfigureTaxRateStep] Paso 4 completado - flujo detenido por validación de tasa impositiva
+
+✅ ✅ ✅ [ImpuestosDiferidosWorkflow] FLUJO DETENIDO EN PASO 4 - validación de tasa impositiva (resultado esperado)
+
+
+======================================================================
+🎯 RESUMEN DE EJECUCIÓN
+======================================================================
+   • pasos: 4 pasos completados (validación bloqueante de tasa impositiva)
+   • tasaImpositiva: Específica
+======================================================================
+
+✅ [TC13] Validación de tasa 100% completada
+
+✅ ✅ ✅ [TC13] TC13 finalizado exitosamente
+
+
+ℹ️  5 non-blocking error(s) ignored by filter.
+
+📋 3 console message(s) logged to stderr

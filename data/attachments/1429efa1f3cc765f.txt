@@ -1,0 +1,70 @@
+🎭️ [ImpuestosDiferidos-MisInformesNic12] Preparando entorno para Mis Informes NIC12
+🔐 [ImpuestosDiferidos-MisInformesNic12] Iniciando sesión (de***@[OCULTO])
+🔐 [LoginPage] Iniciando sesión (de***@[OCULTO])
+✅ [LoginPage] Login completado
+✅ [ImpuestosDiferidos-MisInformesNic12] Sesión iniciada correctamente
+🔍 [ImpuestosDiferidos-MisInformesNic12] Dashboard cargado correctamente
+🎭️ [TC13] Eliminación de informe pendiente y actualización del conteo
+ℹ️  [TC13] Obteniendo total inicial → eliminando primer informe → verificando reducción del total
+🎭️ [MisInformesNic12-DeleteWorkflow] Iniciando flujo: verificar tabla y eliminar informe pendiente
+🔍 [MisInformesNic12-DeleteWorkflow] Navegando a /dashboard/impuestos-diferidos/mis-informes-nic12
+🔍 [ImpuestosDiferidosPage] Navegando a Mis Informes NIC12: /dashboard/impuestos-diferidos/mis-informes-nic12
+✅ [ImpuestosDiferidosPage] Navegación a Mis Informes NIC12 completada
+✅ [MisInformesNic12-DeleteWorkflow] URL de Mis Informes NIC12 verificada
+ℹ️  [ImpuestosDiferidosPage] Seleccionando pestaña "Informes Pendientes"
+⏳ [ImpuestosDiferidosPage] Esperando que los datos de la tabla carguen (footer de paginación)
+✅ [ImpuestosDiferidosPage] Datos de la tabla cargados (paginación visible)
+✅ [ImpuestosDiferidosPage] Pestaña "Informes Pendientes" seleccionada y tabla visible
+✅ [MisInformesNic12-DeleteWorkflow] Pestaña de informes pendientes seleccionada
+ℹ️  [ImpuestosDiferidosPage] Verificando si existen informes pendientes
+✅ [ImpuestosDiferidosPage] Se encontraron informes pendientes para probar
+ℹ️  [ImpuestosDiferidosPage] Extrayendo datos de la tabla de informes
+✅ [ImpuestosDiferidosPage] Filas de datos cargadas en la tabla
+ℹ️  [ImpuestosDiferidosPage] Se encontraron 5 fila(s) en la tabla
+ℹ️  [ImpuestosDiferidosPage] Extrayendo total de informes desde la paginación
+ℹ️  [ImpuestosDiferidosPage] Texto de paginación: "1-5 de 303"
+✅ [ImpuestosDiferidosPage] Total de informes extraído: 303
+ℹ️  [MisInformesNic12-DeleteWorkflow] Filas iniciales en la tabla: 5
+ℹ️  [MisInformesNic12-DeleteWorkflow] Total inicial de informes: 303
+👆 [MisInformesNic12-DeleteWorkflow] Click en primera fila: Botón Eliminar
+ℹ️  [ImpuestosDiferidosPage] Eliminando primer informe pendiente
+ℹ️  [ImpuestosDiferidosPage] 🔍 Intento 1 (span[aria-label="Eliminar"] button en celda de acción)...
+✅ [ImpuestosDiferidosPage] ✅ Botón eliminar presionado (intento 1: span[aria-label="Eliminar"] button en celda de acción)
+✅ [MisInformesNic12-DeleteWorkflow] Botón eliminar presionado
+👆 [MisInformesNic12-DeleteWorkflow] Click en botón Aceptar: Diálogo de confirmación
+📊 [ImpuestosDiferidosPage] Confirmando eliminación en diálogo
+✅ [ImpuestosDiferidosPage] Diálogo de eliminación visible con mensaje de confirmación
+✅ [ImpuestosDiferidosPage] Eliminación confirmada con botón "Aceptar"
+✅ [MisInformesNic12-DeleteWorkflow] Eliminación confirmada
+⏳ [MisInformesNic12-DeleteWorkflow] Esperando que el backend procese la eliminación (el diálogo simplemente desaparece)
+⏳ [ImpuestosDiferidosPage] Esperando que el diálogo de eliminación se cierre (máx 70s)
+✅ [ImpuestosDiferidosPage] Diálogo de eliminación cerrado
+✅ [MisInformesNic12-DeleteWorkflow] Diálogo cerrado - eliminación procesada
+⏳ [ImpuestosDiferidosPage] Esperando total de informes = 302
+ℹ️  [ImpuestosDiferidosPage] Extrayendo total de informes desde la paginación
+ℹ️  [ImpuestosDiferidosPage] Texto de paginación: "1-5 de 302"
+✅ [ImpuestosDiferidosPage] Total de informes extraído: 302
+✅ [ImpuestosDiferidosPage] Total de informes actualizado correctamente: 302
+ℹ️  [ImpuestosDiferidosPage] Extrayendo datos de la tabla de informes
+✅ [ImpuestosDiferidosPage] Filas de datos cargadas en la tabla
+ℹ️  [ImpuestosDiferidosPage] Se encontraron 5 fila(s) en la tabla
+ℹ️  [MisInformesNic12-DeleteWorkflow] Total final de informes: 302
+ℹ️  [ImpuestosDiferidosPage] Comparando datos de tabla para validar eliminación
+ℹ️  [ImpuestosDiferidosPage] Conteo de filas: Antes: 5, Después: 5
+✅ [ImpuestosDiferidosPage] Confirmado: Fila 1 fue eliminada de la tabla
+ℹ️  [ImpuestosDiferidosPage] Datos de fila eliminada: 21/01/2026 | DEMOGRAFIX S.A. | 1006487552001 | No disponible | Pendiente | 
+
+✅ ✅ ✅ [ImpuestosDiferidosPage] Verificación de eliminación de informe completada exitosamente
+
+✅ [MisInformesNic12-DeleteWorkflow] Total de informes actualizado correctamente: 303 → 302
+
+✅ ✅ ✅ [MisInformesNic12-DeleteWorkflow] Flujo de verificación y eliminación de informe pendiente completado
+
+✅ [TC13] Eliminación verificada - tabla y total actualizados correctamente
+
+✅ ✅ ✅ [TC13] TC13 finalizado exitosamente
+
+
+ℹ️  3 non-blocking error(s) ignored by filter.
+
+📋 4 console message(s) logged to stderr

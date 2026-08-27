@@ -1,0 +1,163 @@
+🎭️ [ImpuestosDiferidos-CrearNuevo] Preparando entorno para Impuestos Diferidos
+🔐 [ImpuestosDiferidos-CrearNuevo] Iniciando sesión (de***@[OCULTO])
+🔐 [LoginPage] Iniciando sesión (de***@[OCULTO])
+✅ [LoginPage] Login completado
+✅ [ImpuestosDiferidos-CrearNuevo] Sesión iniciada correctamente
+🔍 [ImpuestosDiferidos-CrearNuevo] Dashboard cargado correctamente
+🎭️ [TC02-DEBUG] Modo debug: captura de endpoints reales sin interceptación
+ℹ️  [TC02-DEBUG] Ejecutando flujo completo SIN interceptación - revisar log [NET] con cuerpos reales
+
+======================================================================
+🎯 INICIANDO FLUJO COMPLETO DE IMPUESTOS DIFERIDOS
+======================================================================
+   • Ano: 2024
+   • Opción saldos: Manual/Sin saldos
+======================================================================
+
+ℹ️  [ImpuestosDiferidosWorkflow] Listener de captura de ID de documento activado
+ℹ️  [ImpuestosDiferidosWorkflow] ConfirmarPedidoInterceptor activado - capturando ID de documento del flujo
+📋 Navegando a Impuestos Diferidos...
+✅ Navegación completada
+
+📍 Paso 1: Seleccionando año de evaluación
+📊 [ImpuestosDiferidosPage] Paso 1 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando año de evaluación: 2024
+✅ [ImpuestosDiferidosPage] Año 2024 seleccionado
+✅ [SelectEvaluationYearStep] Paso 1 completado
+
+📍 Paso 2: Seleccionando razón del estudio
+📊 [ImpuestosDiferidosPage] Paso 2 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando razón del estudio
+ℹ️  [ImpuestosDiferidosPage] Realizando scroll al fondo de la página
+✅ [ImpuestosDiferidosPage] Scroll al fondo completado - página completamente visible
+✅ [ImpuestosDiferidosPage] Estudio disponible seleccionado
+✅ [SelectReasonStep] Paso 2 completado
+
+📍 Paso 3: Configurando saldos contables
+ℹ️  [ConfigureSaldosContablesStep] Modo: Ingreso manual de saldos contables
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "UuL4oma2RJzLhYC8urVH"
+}
+📊 [ImpuestosDiferidosPage] Paso 3 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Ingresando saldos contables manualmente
+✅ [ImpuestosDiferidosPage] Seleccionado: No (ingreso manual)
+✅ [ImpuestosDiferidosPage] Estimación autorizada (checkbox marcado)
+ℹ️  [ImpuestosDiferidosPage] AID Final Jubilación: $200
+ℹ️  [ImpuestosDiferidosPage] AID Final Desahucio: $100
+✅ [ImpuestosDiferidosPage] Saldos manuales ingresados
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "UuL4oma2RJzLhYC8urVH"
+}
+✅ [ConfigureSaldosContablesStep] Paso 3 completado
+
+📍 Paso 4: Configurando tasa impositiva
+📊 [ImpuestosDiferidosPage] Paso 4 de 6 verificado
+ℹ️  [ConfigureTaxRateStep] Usando tasa impositiva estándar
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "UuL4oma2RJzLhYC8urVH"
+}
+✅ [ConfigureTaxRateStep] Paso 4 completado
+
+📍 Paso 5: Verificando resumen de información
+📊 [ImpuestosDiferidosPage] Paso 5 de 6 verificado
+
+======================================================================
+🎯 VERIFICANDO RESUMEN PASO 5 - INFORMACIÓN GENERAL
+======================================================================
+   • empresa: DEMOGRAFIX S.A.
+   • anoValoracion: 2024
+   • empleadosActivos: 599
+   • empleadosJubilados: 17
+   • aidFinalJubilacion: 200.00
+   • aidFinalDesahucio: 100.00
+   • tipoImpuesto: estandar
+   • tasaImpuesto: 25%
+======================================================================
+
+✅ [ImpuestosDiferidosPage] Sección de resumen visible
+ℹ️  [ImpuestosDiferidosPage] Validando campos de la tabla
+✓ [ImpuestosDiferidosPage] Empresa: esperado "DEMOGRAFIX S.A." → actual "DEMOGRAFIX S.A."
+✓ [ImpuestosDiferidosPage] Año de valoración: esperado "2024" → actual "2024"
+✓ [ImpuestosDiferidosPage] Empleados activos: esperado "599" → actual "599"
+✓ [ImpuestosDiferidosPage] Empleados jubilados: esperado "17" → actual "17"
+✓ [ImpuestosDiferidosPage] AID final jubilación: esperado "200.00" → actual "200.00"
+✓ [ImpuestosDiferidosPage] AID final desahucio: esperado "100.00" → actual "100.00"
+✓ [ImpuestosDiferidosPage] Tipo de impuesto: esperado "estandar" → actual "estandar"
+✓ [ImpuestosDiferidosPage] Tasa de impuesto: esperado "25%" → actual "25%"
+✅ [ImpuestosDiferidosPage] TODOS LOS DATOS DEL RESUMEN VALIDADOS CORRECTAMENTE
+✅ [VerifyStep5Summary] Resumen de datos validado correctamente
+ℹ️  [ImpuestosDiferidosPage] Confirmando detalles de facturación
+✅ [ImpuestosDiferidosPage] Detalles de facturación confirmados
+✅ [VerifyStep5Summary] Paso 5 completado
+
+📍 Paso 6: Confirmando pedido
+ℹ️  [ConfirmarPedidoStep] MODO DEBUG: sin interceptación - capturando endpoints reales
+
+======================================================================
+🎯 🔬 MODO DEBUG - SIN INTERCEPTACIÓN (red real)
+======================================================================
+   • hosts: *.run.app
+======================================================================
+
+✅ [ImpuestosDiferidosWorkflow] Logger de red con cuerpos de respuesta activado - ejecutando contra el backend real
+ℹ️  [ImpuestosDiferidosPage] Buscando botón "Confirmar pedido" en Paso 6
+👆 [ImpuestosDiferidosPage] click: Confirmar pedido
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "UuL4oma2RJzLhYC8urVH"
+}
+✅ [ImpuestosDiferidosPage] Botón "Confirmar pedido" clickeado
+⏳ [ConfirmarPedidoStep] Esperando 45s para capturar todas las llamadas al backend real...
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/UuL4oma2RJzLhYC8urVH -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":{"estado":"pendiente","empresa":{"ruc":"1006487552001","nombre":"DEMOGRAFIX S.A."},"origin":"actuafast","id":"UuL4oma2RJzLhYC8urVH","createdAt":{"_seconds":1787853050,"_nanoseconds":920000000},"searchIndex":[],"pasosAvanzados":{"pasosTotales":6,"pasoActual":5},"updatedAt":{"_seconds":1787853069,"_nanoseconds":100000000}},"message":"Operación exitosa","status":200}
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso5 -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":{"tarifa":{"code":"28","quantity":616,"price":0.6723946},"id":"paso5","datosFacturacion":{"ruc":"1006487552001","razonSocial":"DEMOGRAFIX S.A.","maximoDiaFacturacion":10,"ciudad":"CAYAMBE","direccion":"eL BATÁN","nombreComercial":"DEMOGRAFIX S.A.","telefono":"(593) 0960174722","email":"demo@actuaria.com","salesforceAccountId":"001VD00000RsHadYAF"},"ventaEfectiva":{"datosIncompletos":false,"oportunidad":"006VD00000KucTiYAJ","estado":"Revisión Cliente","requiereAnulacion":false,"numeroProceso":"136750","id":"a0FVD000003wDxg2AE","conteoProductosNic12":1,"nombre":"VE-00152995"},"ordenDeCompra":false,"updatedAt":{"_seconds":1787853069,"_nanoseconds":230000000}},"message":"Operación exitosa","status":200}
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] POST https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/query/custom -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":[{"esp":{"desahucio":"Desahucio","distribucionDemografica":"Distribución demográfica","distribucionJubilados":"Partícipes jubilados","distribucionNumeroColaboradoresPorTs":"Distribución número de partícipes por tiempo de servicio","distribucionProvision":"Provisión acumulada","distribucionProvisionBonificacionDesahucioPorTs":"Distribución provisión bonificación por desahucio por tiempo de servicio (en USD)","distribucionProvisionJubilacionPatronalPorTs":"Distribución provisión jubilación patronal por tiempo de servicio (en USD)","distribucionRemuneracion":"Remuneración promedio","hombres":"Hombres","jubilacionPatronal":"Jubilación Patronal","jubilados":"Jubilados","mujeres":"Mujeres","promedioTotal":"USD · Promedio total","provisionTotal":"USD · Total acumulado","totalColaboradores":"Partícipes activos","totalJubilados":"Total jubilados","ts10To15":"10 ≤ TS < 15","ts15To20":"15 ≤ TS < 20","ts20To25":"20 ≤ TS < 25","tsGte25":"TS ≥ 25","tsLt10":"TS < 10"},"id":"etiquetas","createdAt":{"_seconds":1783452022,"_nanoseconds":198000000},"updatedAt":{"_seconds":1783452022,"_nanoseconds":198000000}},{"CE":{"codigo":"CE","nombre":"NIIF_COMPLETA_BONOS_USA"},"CL":{"codigo":"CL","nombre":"NIIF_COMPLETA_BONOS_LOCALES"},"NC":{"codigo":"NC","nombre":"NEC"},"PY":{"codigo":"PY","nombre":"NIIF_PYMES"},"id":"normativa","createdAt":{"_seconds":1783452018,"_nanoseconds":728000000},"updatedAt":{"_seconds":1783452018,"_nanoseconds":728000000}},{"actuaria_contribuyente_especial":true,"base_urls_apis":{"actas_api":"https://actasfiniquito-rbdklaccwq-ue.a.run.app","actuafast_api":"https://api.actuaria.com:20443/actuafast-prueba/api/v1","actuafast_v2_api":"https://actuafast-api-383942996286.us-east1.run.app","functions_api":"https://api-vpmay2wg5q-ue.a.run.app/api","hipotesis_actuarial":"https://calculo-hipotesis-actuarial-1005373944706.us-east1.run.app/v1/calculo-tasa-rotacion-especifica","middleware":"https://middleware-vpmay2wg5q-ue.a.run.app","portal_api":"","portal_url":"… [truncado, 16964 chars]
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] POST https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/query/custom -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":[{"esp":{"desahucio":"Desahucio","distribucionDemografica":"Distribución demográfica","distribucionJubilados":"Partícipes jubilados","distribucionNumeroColaboradoresPorTs":"Distribución número de partícipes por tiempo de servicio","distribucionProvision":"Provisión acumulada","distribucionProvisionBonificacionDesahucioPorTs":"Distribución provisión bonificación por desahucio por tiempo de servicio (en USD)","distribucionProvisionJubilacionPatronalPorTs":"Distribución provisión jubilación patronal por tiempo de servicio (en USD)","distribucionRemuneracion":"Remuneración promedio","hombres":"Hombres","jubilacionPatronal":"Jubilación Patronal","jubilados":"Jubilados","mujeres":"Mujeres","promedioTotal":"USD · Promedio total","provisionTotal":"USD · Total acumulado","totalColaboradores":"Partícipes activos","totalJubilados":"Total jubilados","ts10To15":"10 ≤ TS < 15","ts15To20":"15 ≤ TS < 20","ts20To25":"20 ≤ TS < 25","tsGte25":"TS ≥ 25","tsLt10":"TS < 10"},"id":"etiquetas","createdAt":{"_seconds":1783452022,"_nanoseconds":198000000},"updatedAt":{"_seconds":1783452022,"_nanoseconds":198000000}},{"CE":{"codigo":"CE","nombre":"NIIF_COMPLETA_BONOS_USA"},"CL":{"codigo":"CL","nombre":"NIIF_COMPLETA_BONOS_LOCALES"},"NC":{"codigo":"NC","nombre":"NEC"},"PY":{"codigo":"PY","nombre":"NIIF_PYMES"},"id":"normativa","createdAt":{"_seconds":1783452018,"_nanoseconds":728000000},"updatedAt":{"_seconds":1783452018,"_nanoseconds":728000000}},{"actuaria_contribuyente_especial":true,"base_urls_apis":{"actas_api":"https://actasfiniquito-rbdklaccwq-ue.a.run.app","actuafast_api":"https://api.actuaria.com:20443/actuafast-prueba/api/v1","actuafast_v2_api":"https://actuafast-api-383942996286.us-east1.run.app","functions_api":"https://api-vpmay2wg5q-ue.a.run.app/api","hipotesis_actuarial":"https://calculo-hipotesis-actuarial-1005373944706.us-east1.run.app/v1/calculo-tasa-rotacion-especifica","middleware":"https://middleware-vpmay2wg5q-ue.a.run.app","portal_api":"","portal_url":"… [truncado, 16964 chars]
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] POST https://apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/ingresar-pedido -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":{"detalleWorkflow":"projects/act-compass-stage-proj/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage","executionName":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/ee3cb901-2864-49c8-b533-64ddac2fe493","mensaje":"OK","statusExecution":"CREATED","respuesta":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/ee3cb901-2864-49c8-b533-64ddac2fe493"},"message":"Operación exitosa","status":200}
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso6 -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":{"workflow":{"executionName":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/ee3cb901-2864-49c8-b533-64ddac2fe493","statusExecution":"CREATED","detalleWorkflow":"projects/act-compass-stage-proj/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage","mensaje":"OK","respuesta":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/ee3cb901-2864-49c8-b533-64ddac2fe493"},"id":"paso6","updatedAt":{"_seconds":1787853071,"_nanoseconds":119000000}},"message":"Operación exitosa","status":200}
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] GET https://apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/status?name=projects%2F72574958900%2Flocations%2Fus-central1%2Fworkflows%2Fwf_creacion_pedido_estandar_stage%2Fexecutions%2Fee3cb901-2864-49c8-b533-64ddac2fe493 -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":{"detalleWorkflow":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/ee3cb901-2864-49c8-b533-64ddac2fe493","executionName":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/ee3cb901-2864-49c8-b533-64ddac2fe493","mensaje":"OK","statusExecution":"ACTIVE","respuesta":{}},"message":"Operación exitosa","status":200}
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] GET https://apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/status?name=projects%2F72574958900%2Flocations%2Fus-central1%2Fworkflows%2Fwf_creacion_pedido_estandar_stage%2Fexecutions%2Fee3cb901-2864-49c8-b533-64ddac2fe493 -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":{"detalleWorkflow":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/ee3cb901-2864-49c8-b533-64ddac2fe493","executionName":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/ee3cb901-2864-49c8-b533-64ddac2fe493","mensaje":"OK","statusExecution":"SUCCEEDED","respuesta":{"ejecucion_automatica":{},"idAccount":"001VD00000RsHadYAF","idOpportunity":"006VD00000ayy6EYAQ","idVentaEfectiva":"a0FVD0000097LYn2AM","numeroProceso":"138390","pedidoSecundario":{}}},"message":"Operación exitosa","status":200}
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "UuL4oma2RJzLhYC8urVH"
+}
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso6 -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":{"id":"paso6","workflow":{"executionName":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/ee3cb901-2864-49c8-b533-64ddac2fe493","mensaje":"OK","statusExecution":"SUCCEEDED","detalleWorkflow":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/ee3cb901-2864-49c8-b533-64ddac2fe493","respuesta":{"idAccount":"001VD00000RsHadYAF","idVentaEfectiva":"a0FVD0000097LYn2AM","ejecucion_automatica":{},"numeroProceso":"138390","pedidoSecundario":{},"idOpportunity":"006VD00000ayy6EYAQ"}},"updatedAt":{"_seconds":1787853091,"_nanoseconds":577000000}},"message":"Operación exitosa","status":200}
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/UuL4oma2RJzLhYC8urVH -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":{"empresa":{"ruc":"1006487552001","nombre":"DEMOGRAFIX S.A."},"origin":"actuafast","id":"UuL4oma2RJzLhYC8urVH","createdAt":{"_seconds":1787853050,"_nanoseconds":920000000},"searchIndex":[],"pasosAvanzados":{"pasosTotales":6,"pasoActual":5},"estado":"solicitado","numeroProceso":"138390","updatedAt":{"_seconds":1787853091,"_nanoseconds":712000000}},"message":"Operación exitosa","status":200}
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] GET https://apinic12-sql5tfrt5q-uc.a.run.app/salesforce/consultar_venta_efectiva/138390 -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   💾 Respuesta completa guardada en test-results/debug-network/consultar_venta_efectiva.json
+
+✅ ✅ ✅ [ConfirmarPedidoStep] DEBUG COMPLETADO - revisa el log [NET] con los endpoints y cuerpos reales
+
+
+✅ ✅ ✅ [ImpuestosDiferidosWorkflow] ✅ FLUJO COMPLETO DE IMPUESTOS DIFERIDOS FINALIZADO EXITOSAMENTE
+
+
+======================================================================
+🎯 RESUMEN DE EJECUCIÓN
+======================================================================
+   • pasos: 6 pasos completados (con confirmación de pedido)
+   • saldosContables: Manual/Sin saldos
+   • plantillaDescargada: No
+   • tasaImpositiva: Estándar
+======================================================================
+
+✅ [TC02-DEBUG] Captura de endpoints reales completada
+
+✅ ✅ ✅ [TC02-DEBUG] TC02-DEBUG finalizado exitosamente
+
+
+ℹ️  4 non-blocking error(s) ignored by filter.
+
+📋 3 console message(s) logged to stderr

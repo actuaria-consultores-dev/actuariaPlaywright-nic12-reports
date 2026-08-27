@@ -1,0 +1,5 @@
+[LOG] [ Federation Runtime ] Version 7.3.11 from modulo-control-tributario of shared singleton module @mui/material does not satisfy the requirement of modulo-actuaria-ia which needs ^5.18.0) [5:56:47 PM]
+[LOG] Using Firebase Production Services for environment: stage [5:56:49 PM]
+[LOG] trackEvent view_login {timestamp: 2026-08-27T17:56:49.621Z} [5:56:49 PM]
+[LOG] Using Firebase Production Services for environment: stage [5:56:50 PM]
+[LOG] Using Firebase Production Services for environment: stage [5:56:51 PM]

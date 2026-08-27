@@ -1,0 +1,343 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: specs/ImpuestosDiferidos/crearImpuestosDifTwo.test.ts >> Verificar creacion de Impuestos Diferidos con DEMOGRAFIX S.A. >> Impuestos Diferidos | [HP] | TC04 (DEMOGRAFIX): Usuario puede completar flujo con archivo válido de saldos contables
+- Location: tests/specs/ImpuestosDiferidos/crearImpuestosDifTwo.test.ts:158:2
+
+# Error details
+
+```
+Test timeout of 180000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 180000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: 'Confirmar pedido' })
+    - locator resolved to <button disabled tabindex="-1" type="button" class="MuiButtonBase-root Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-azybjn">Confirmar pedido</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not enabled
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not enabled
+    - retrying click action
+      - waiting 100ms
+    254 × waiting for element to be visible, enabled and stable
+        - element is not enabled
+      - retrying click action
+        - waiting 500ms
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f1e2]:
+  - generic [ref=f1e3]:
+    - banner [ref=f1e4]:
+      - generic [ref=f1e6]:
+        - button "Notificaciones" [ref=f1e7] [cursor=pointer]:
+          - generic [ref=f1e8]: "2"
+        - button [ref=f1e12] [cursor=pointer]:
+          - img "image" [ref=f1e13]
+          - paragraph [ref=f1e14]: DEMOGRAFIX S.A.
+    - complementary [ref=f1e17]:
+      - generic [ref=f1e18]:
+        - link [ref=f1e19] [cursor=pointer]:
+          - /url: /dashboard
+          - img "Actuaria" [ref=f1e20]
+        - button "abrir/cerrar menú" [ref=f1e21] [cursor=pointer]
+      - generic [ref=f1e26]:
+        - textbox "Buscar..." [ref=f1e30]
+        - group
+      - list [ref=f1e32]:
+        - button "Inicio" [ref=f1e33] [cursor=pointer]
+        - list [ref=f1e39]:
+          - listitem [ref=f1e40]: Panel General
+          - generic [ref=f1e41]:
+            - button "Informe de impuestos diferidos" [ref=f1e42] [cursor=pointer]
+            - generic [ref=f1e53]:
+              - link "Listado de informes" [ref=f1e54] [cursor=pointer]:
+                - /url: /dashboard/impuestos-diferidos/mis-informes-nic12
+              - link "Nuevo informe" [ref=f1e60] [cursor=pointer]:
+                - /url: /dashboard/impuestos-diferidos/nueva-nic12
+      - generic [ref=f1e67]:
+        - paragraph [ref=f1e68]: Actuaria+ Stage
+        - paragraph [ref=f1e69]: soporteplus@actuaria.com
+        - generic [ref=f1e70]: v 1.11.2
+    - generic [ref=f1e75]:
+      - generic [ref=f1e76]:
+        - heading "Hola, Rodrigo" [level=1] [ref=f1e77]
+        - paragraph [ref=f1e78]: Última conexión fue a las 3:07pm
+      - generic [ref=f1e79]:
+        - button "Inicio" [ref=f1e80] [cursor=pointer]
+        - button "Estudio actuarial" [ref=f1e82] [cursor=pointer]
+        - button "Impuestos diferidos" [ref=f1e84] [cursor=pointer]
+        - button "Actas de jubilación" [ref=f1e86] [cursor=pointer]
+        - button "Control tributario" [ref=f1e88] [cursor=pointer]
+        - button "Simulador de beneficios" [ref=f1e90] [cursor=pointer]
+        - button "NavIA ᴮᵉᵗᵃ" [ref=f1e92] [cursor=pointer]
+      - separator [ref=f1e94]
+      - generic [ref=f1e95]:
+        - generic [ref=f1e96]:
+          - heading "Solicitud de impuestos diferidos" [level=3] [ref=f1e97]
+          - paragraph [ref=f1e99]: Paso 5 de 6
+          - button [ref=f1e108] [cursor=pointer]
+        - generic [ref=f1e113]:
+          - generic [ref=f1e115]:
+            - generic [ref=f1e116]:
+              - generic [ref=f1e117]:
+                - heading "Resumen de la información ingresada" [level=3] [ref=f1e118]
+                - paragraph [ref=f1e119]: "Información ingresada para la elaboración del informe de Impuestos Diferidos de la entidad DEMOGRAFIX S.A.:"
+              - img "Logo de la empresa" [ref=f1e120]
+            - generic [ref=f1e121]:
+              - paragraph [ref=f1e123]: "1"
+              - paragraph [ref=f1e124]: "Información general:"
+            - table [ref=f1e126]:
+              - rowgroup [ref=f1e127]:
+                - row [ref=f1e128]:
+                  - cell "Empresa" [ref=f1e129]
+                  - cell "DEMOGRAFIX S.A." [ref=f1e130]
+                - row [ref=f1e131]:
+                  - cell "Año de valoración" [ref=f1e132]
+                  - cell "2024" [ref=f1e133]
+                - row [ref=f1e134]:
+                  - cell "Empleados activos" [ref=f1e135]
+                  - cell "599" [ref=f1e136]
+                - row [ref=f1e137]:
+                  - cell "Empleados jubilados" [ref=f1e138]
+                  - cell "17" [ref=f1e139]
+                - row [ref=f1e140]:
+                  - cell "AID final jubilación" [ref=f1e141]
+                  - cell "12,857.00" [ref=f1e142]
+                - row [ref=f1e143]:
+                  - cell "AID final desahucio" [ref=f1e144]
+                  - cell "25,155.00" [ref=f1e145]
+                - row [ref=f1e146]:
+                  - cell "Tipo de impuesto" [ref=f1e147]
+                  - cell "estandar" [ref=f1e148]
+                - row [ref=f1e149]:
+                  - cell "Tasa de impuesto" [ref=f1e150]
+                  - cell "25%" [ref=f1e151]
+          - alert [ref=f1e152]:
+            - generic [ref=f1e156]: No se puede ingresar un nuevo pedido porque existe un nic-12 en curso
+        - generic [ref=f1e157]:
+          - button "Regresar" [ref=f1e158] [cursor=pointer]
+          - button "Confirmar pedido" [disabled]
+  - link "Escríbenos a WhatsApp" [ref=f1e159] [cursor=pointer]:
+    - /url: https://wa.me/593979133351/?text=Hola+Actuaria,+tengo+novedades+sobre+el+Portal+de+Clientes
+```
+
+# Test source
+
+```ts
+  631 | 		this.pageLogger.exito('TODOS LOS DATOS DEL RESUMEN VALIDADOS CORRECTAMENTE');
+  632 | 	}
+  633 | 
+  634 | 	/**
+  635 | 	 * Step 3: Download and validate Impuestos Diferidos Plantilla template
+  636 | 	 * Used in Paso 3 when downloadPlantillaImpuestos flag is enabled
+  637 | 	 * Verifies that the template contains required columns:
+  638 | 	 * - Nombre
+  639 | 	 * - Cédula
+  640 | 	 * - Saldo acumulado AID JP
+  641 | 	 * - Saldo acumulado AID BD
+  642 | 	 */
+  643 | 	async downloadPlantillaImpuestos() {
+  644 | 		this.pageLogger.info(`🔍 Buscando botón de descarga: "Descargar Plantilla"`);
+  645 | 		
+  646 | 		// Find the download button
+  647 | 		const downloadButton = this.page.getByRole('button', { name: 'Descargar Plantilla' }).first();
+  648 | 		await expect(downloadButton).toBeVisible({ timeout: 10000 });
+  649 | 		this.pageLogger.info(`✅ Botón de descarga está visible`);
+  650 | 
+  651 | 		// Set up download promise BEFORE clicking (critical for event capture)
+  652 | 		const downloadPromise = this.page.waitForEvent('download', { timeout: 30000 }).catch(() => null);
+  653 | 		
+  654 | 		// Click the download button
+  655 | 		this.pageLogger.info(`🖱️ Haciendo clic en botón de descarga...`);
+  656 | 		await downloadButton.click();
+  657 | 
+  658 | 		// Wait for the download to start
+  659 | 		const download = await downloadPromise;
+  660 | 		
+  661 | 		// Handle case where download event doesn't fire - FAIL the test
+  662 | 		if (!download) {
+  663 | 			const errorMsg = `❌ No se recibió evento de descarga dentro del tiempo esperado (timeout 30s). Verifica que el servidor no retorne HTTP 500.`;
+  664 | 			this.pageLogger.error(errorMsg);
+  665 | 			throw new Error(errorMsg);
+  666 | 		}
+  667 | 		
+  668 | 		// Verify download properties
+  669 | 		const filename = download.suggestedFilename();
+  670 | 		this.pageLogger.info(`📄 Nombre del archivo descargado: ${filename}`);
+  671 | 		
+  672 | 		expect(filename).toBeTruthy();
+  673 | 		expect(filename).toContain('.xlsx');
+  674 | 		
+  675 | 		// Create download directory if it doesn't exist
+  676 | 		const downloadDir = './tests/data/download';
+  677 | 		if (!fs.existsSync(downloadDir)) {
+  678 | 			fs.mkdirSync(downloadDir, { recursive: true });
+  679 | 			this.pageLogger.info(`📁 Directorio de descargas creado: ${downloadDir}`);
+  680 | 		}
+  681 | 
+  682 | 		// Save the file to the download directory
+  683 | 		const filePath = `${downloadDir}/${filename}`;
+  684 | 		await download.saveAs(filePath);
+  685 | 		this.pageLogger.exito(`📥 Plantilla de Impuestos Diferidos guardada: ${filePath}`);
+  686 | 
+  687 | 		// Validate the template structure and content
+  688 | 		try {
+  689 | 			this.pageLogger.info(`🔎 Validando estructura y contenido de la plantilla...`);
+  690 | 			await ExcelValidator.validatePlantillaImpuestos(filePath);
+  691 | 			this.pageLogger.exito(`✅ Plantilla de Impuestos Diferidos validada correctamente`);
+  692 | 		} catch (error) {
+  693 | 			this.pageLogger.error(`❌ Error validando plantilla: ${(error as Error).message}`);
+  694 | 			// Clean up the file before throwing
+  695 | 			if (fs.existsSync(filePath)) {
+  696 | 				fs.unlinkSync(filePath);
+  697 | 				this.pageLogger.info(`🗑️ Archivo eliminado debido a error de validación: ${filePath}`);
+  698 | 			}
+  699 | 			throw error;
+  700 | 		}
+  701 | 
+  702 | 		// Clean up the file after successful validation
+  703 | 		try {
+  704 | 			if (fs.existsSync(filePath)) {
+  705 | 				fs.unlinkSync(filePath);
+  706 | 				this.pageLogger.exito(`🗑️ Archivo de plantilla eliminado correctamente: ${filePath}`);
+  707 | 			}
+  708 | 		} catch (cleanupError) {
+  709 | 			this.pageLogger.advertencia(`⚠️ No se pudo eliminar archivo: ${(cleanupError as Error).message}`);
+  710 | 		}
+  711 | 
+  712 | 		return filename;
+  713 | 	}
+  714 | 
+  715 | 	async confirmFacturationDetails() {
+  716 | 		this.pageLogger.info('Confirmando detalles de facturación');
+  717 | 		await expect(this.page.getByText('Información de facturación')).toBeVisible();
+  718 | 		await expect(this.page.getByText('Tarifa calculada')).toBeVisible();
+  719 | 		this.pageLogger.exito('Detalles de facturación confirmados');
+  720 | 	}
+  721 | 
+  722 | 	/**
+  723 | 	 * Click the "Confirmar pedido" button on Step 6.
+  724 | 	 * This triggers the backend endpoints that are intercepted by the
+  725 | 	 * ConfirmarPedidoInterceptor (Mockoon-style mock).
+  726 | 	 */
+  727 | 	async clickConfirmarPedido() {
+  728 | 		this.pageLogger.info('Buscando botón "Confirmar pedido" en Paso 6');
+  729 | 		await expect(this.confirmarPedidoButton).toBeVisible({ timeout: 15000 });
+  730 | 		this.pageLogger.interaccion('Confirmar pedido', 'click');
+> 731 | 		await this.confirmarPedidoButton.click();
+      |                                    ^ Error: locator.click: Test timeout of 180000ms exceeded.
+  732 | 		this.pageLogger.exito('Botón "Confirmar pedido" clickeado');
+  733 | 	}
+  734 | 
+  735 | 	/**
+  736 | 	 * Verify the final confirmation screen is shown after "Confirmar pedido".
+  737 | 	 * Once the workflow succeeds, the app leaves the "Paso X de 6" wizard and
+  738 | 	 * renders the delivery/process details ("Fecha de entrega aproximada",
+  739 | 	 * "Número de proceso", "Fecha de valoración").
+  740 | 	 */
+  741 | 	async verifyPedidoConfirmado(timeout: number = 30000) {
+  742 | 		this.pageLogger.info('Verificando pantalla final de confirmación del pedido');
+  743 | 		const deliveryLabel = this.page.getByText('Fecha de entrega aproximada').first();
+  744 | 		await expect(deliveryLabel).toBeVisible({ timeout });
+  745 | 		this.pageLogger.exito('Confirmación del pedido visible - fecha de entrega / proceso / valoración');
+  746 | 	}
+  747 | 
+  748 | 	// ============================================================================
+  749 | 	// Mis Informes NIC12 - Reports table (verificar tabla / eliminar pendientes)
+  750 | 	// ============================================================================
+  751 | 
+  752 | 	/**
+  753 | 	 * Navigate to the Impuestos Diferidos reports table (Mis Informes NIC12).
+  754 | 	 * @param basePath - Path of the reports table page (e.g. /dashboard/impuestos-diferidos/mis-informes-nic12)
+  755 | 	 */
+  756 | 	async navigateToMisInformesNic12(basePath: string) {
+  757 | 		this.pageLogger.navegacion(`Navegando a Mis Informes NIC12: ${basePath}`);
+  758 | 		await this.page.goto(basePath);
+  759 | 		await this.page.waitForTimeout(1000); // Let the table page start loading
+  760 | 		this.pageLogger.exito('Navegación a Mis Informes NIC12 completada');
+  761 | 	}
+  762 | 
+  763 | 	/**
+  764 | 	 * Click the pending reports tab (e.g. "Informes Pendientes") and wait for the
+  765 | 	 * reports table to render.
+  766 | 	 * @param tabName - Name of the pending tab
+  767 | 	 */
+  768 | 	async clickInformesPendientesTab(tabName: string) {
+  769 | 		this.pageLogger.info(`Seleccionando pestaña "${tabName}"`);
+  770 | 		const tab = this.page.getByRole('tab', { name: tabName });
+  771 | 		await expect(tab).toBeVisible({ timeout: 20000 });
+  772 | 		await tab.click();
+  773 | 
+  774 | 		// Wait for the MUI table to render after switching tabs
+  775 | 		await this.reportsTable.waitFor({ state: 'visible', timeout: 20000 });
+  776 | 
+  777 | 		// The data rows load asynchronously after the tab is switched. The
+  778 | 		// pagination footer only appears once the data request completes, so wait
+  779 | 		// for it to avoid reading an empty table (the table takes time to load).
+  780 | 		this.pageLogger.espera('Esperando que los datos de la tabla carguen (footer de paginación)');
+  781 | 		try {
+  782 | 			await this.paginationDisplayedRows.waitFor({ state: 'visible', timeout: 30000 });
+  783 | 			this.pageLogger.exito('Datos de la tabla cargados (paginación visible)');
+  784 | 		} catch (e) {
+  785 | 			this.pageLogger.advertencia('No se detectó el footer de paginación - continuando (posible tabla vacía)');
+  786 | 		}
+  787 | 		this.pageLogger.exito(`Pestaña "${tabName}" seleccionada y tabla visible`);
+  788 | 	}
+  789 | 
+  790 | 	/**
+  791 | 	 * Safety guard: check whether the reports table has at least one row with a
+  792 | 	 * delete action. Returns false (instead of throwing) when the table is empty,
+  793 | 	 * so tests can be safely skipped.
+  794 | 	 */
+  795 | 	async hasPendingReports(timeout: number = 30000): Promise<boolean> {
+  796 | 		this.pageLogger.info('Verificando si existen informes pendientes');
+  797 | 		try {
+  798 | 			// NOTE: the aria-label="Eliminar" lives on the <span> wrapper, not the
+  799 | 			// <button>. Use span[aria-label="Eliminar"] button so it matches the DOM:
+  800 | 			//   <span aria-label="Eliminar"><button>…</button></span>
+  801 | 			await this.page.waitForSelector('table tbody tr:has(span[aria-label="Eliminar"] button)', { timeout });
+  802 | 			this.pageLogger.exito('Se encontraron informes pendientes para probar');
+  803 | 			return true;
+  804 | 		} catch (e) {
+  805 | 			this.pageLogger.advertencia('No se encontraron informes pendientes - tabla vacía o sin botón Eliminar');
+  806 | 			return false;
+  807 | 		}
+  808 | 	}
+  809 | 
+  810 | 	/**
+  811 | 	 * Verify the reports table column headers match the expected ones (in order).
+  812 | 	 * @param expectedColumns - Expected header texts
+  813 | 	 */
+  814 | 	async verifyTableColumns(expectedColumns: string[]) {
+  815 | 		this.pageLogger.info('Verificando columnas de la tabla de informes');
+  816 | 		await this.reportsTable.waitFor({ state: 'visible', timeout: 20000 });
+  817 | 
+  818 | 		const headerCount = await this.tableHeaders.count();
+  819 | 		this.pageLogger.info(`Columnas encontradas: ${headerCount}, esperadas: ${expectedColumns.length}`);
+  820 | 		expect(headerCount).toBe(expectedColumns.length);
+  821 | 
+  822 | 		for (let i = 0; i < expectedColumns.length; i++) {
+  823 | 			const headerText = (await this.tableHeaders.nth(i).innerText()).trim();
+  824 | 			this.pageLogger.info(`Columna ${i + 1}: "${headerText}"`);
+  825 | 			expect(headerText).toBe(expectedColumns[i]);
+  826 | 		}
+  827 | 		this.pageLogger.exito('Todas las columnas de la tabla verificadas correctamente');
+  828 | 	}
+  829 | 
+  830 | 	/**
+  831 | 	 * Extract the table data (all rows) safely.
+```

@@ -1,0 +1,179 @@
+🎭️ [ImpuestosDiferidos-CrearNuevo] Preparando entorno para Impuestos Diferidos
+🔐 [ImpuestosDiferidos-CrearNuevo] Iniciando sesión (de***@[OCULTO])
+🔐 [LoginPage] Iniciando sesión (de***@[OCULTO])
+✅ [LoginPage] Login completado
+✅ [ImpuestosDiferidos-CrearNuevo] Sesión iniciada correctamente
+🔍 [ImpuestosDiferidos-CrearNuevo] Dashboard cargado correctamente
+🎭️ [TC15] Opción alternativa: "La entidad no registra saldos"
+ℹ️  [TC15] Ejecutando flujo con opción "Sin saldos registrados"
+
+======================================================================
+🎯 INICIANDO FLUJO COMPLETO DE IMPUESTOS DIFERIDOS
+======================================================================
+   • Ano: 2024
+   • Opción saldos: Manual/Sin saldos
+======================================================================
+
+ℹ️  [ImpuestosDiferidosWorkflow] Listener de captura de ID de documento activado
+ℹ️  [ImpuestosDiferidosWorkflow] ConfirmarPedidoInterceptor activado - capturando ID de documento del flujo
+📋 Navegando a Impuestos Diferidos...
+✅ Navegación completada
+
+📍 Paso 1: Seleccionando año de evaluación
+📊 [ImpuestosDiferidosPage] Paso 1 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando año de evaluación: 2024
+✅ [ImpuestosDiferidosPage] Año 2024 seleccionado
+✅ [SelectEvaluationYearStep] Paso 1 completado
+
+📍 Paso 2: Seleccionando razón del estudio
+📊 [ImpuestosDiferidosPage] Paso 2 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando razón del estudio
+ℹ️  [ImpuestosDiferidosPage] Realizando scroll al fondo de la página
+✅ [ImpuestosDiferidosPage] Scroll al fondo completado - página completamente visible
+✅ [ImpuestosDiferidosPage] Estudio disponible seleccionado
+✅ [SelectReasonStep] Paso 2 completado
+
+📍 Paso 3: Configurando saldos contables
+ℹ️  [ConfigureSaldosContablesStep] Modo: La entidad no registra saldos (sin datos)
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "hcAwJAWpDeVjaYde1BE0"
+}
+📊 [ImpuestosDiferidosPage] Paso 3 de 6 verificado
+ℹ️  [ConfigureSaldosContablesStep] Seleccionando opción: La entidad no registra saldos
+ℹ️  [ImpuestosDiferidosPage] Seleccionando opción: "La entidad no registra saldos"
+✅ [ImpuestosDiferidosPage] Opción "La entidad no registra saldos" seleccionada
+✅ [ConfigureSaldosContablesStep] Opción "La entidad no registra saldos" configurada
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "hcAwJAWpDeVjaYde1BE0"
+}
+✅ [ConfigureSaldosContablesStep] Paso 3 completado
+
+📍 Paso 4: Configurando tasa impositiva
+📊 [ImpuestosDiferidosPage] Paso 4 de 6 verificado
+ℹ️  [ConfigureTaxRateStep] Usando tasa impositiva estándar
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "hcAwJAWpDeVjaYde1BE0"
+}
+✅ [ConfigureTaxRateStep] Paso 4 completado
+
+📍 Paso 6: Confirmando pedido
+ℹ️  [ConfirmarPedidoStep] MODO MOCK: armando interceptación antes de hacer clic en "Confirmar pedido"
+
+======================================================================
+🎯 ARMANDO INTERCEPTACIÓN DE ENDPOINTS (MOCKOON-STYLE)
+======================================================================
+   • ingresarPedido: **/apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/ingresar-pedido
+   • workflowEstado: [object Object]
+   • paso6: **/apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso6
+   • upsertDocumento: [object Object]
+   • consultarVentaEfectiva: **/apinic12-sql5tfrt5q-uc.a.run.app/salesforce/consultar_venta_efectiva/*
+======================================================================
+
+✅ [ImpuestosDiferidosWorkflow] Rutas de interceptación registradas
+ℹ️  [ImpuestosDiferidosPage] Buscando botón "Confirmar pedido" en Paso 6
+👆 [ImpuestosDiferidosPage] click: Confirmar pedido
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "hcAwJAWpDeVjaYde1BE0"
+}
+ℹ️  [ImpuestosDiferidosWorkflow] Interceptado: PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/hcAwJAWpDeVjaYde1BE0
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso5 -> 200
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/hcAwJAWpDeVjaYde1BE0 -> 200
+✅ [ImpuestosDiferidosPage] Botón "Confirmar pedido" clickeado
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso5 -> 200
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] POST https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/query/custom -> 200
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] POST https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/query/custom -> 200
+ℹ️  [ImpuestosDiferidosWorkflow] Interceptado: POST https://apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/ingresar-pedido
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] POST https://apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/ingresar-pedido -> 200
+ℹ️  [ImpuestosDiferidosWorkflow] Interceptado: PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso6
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso6 -> 200
+ℹ️  [ImpuestosDiferidosWorkflow] Interceptado (workflow estado): GET https://apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/status?name=projects%2F72574958900%2Flocations%2Fus-central1%2Fworkflows%2Fwf_creacion_pedido_estandar_stage%2Fexecutions%2F591b7b0e-877d-46d9-9884-b62f38e3e4fb
+ℹ️  [ImpuestosDiferidosWorkflow] Interceptado: GET https://apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/status?name=projects%2F72574958900%2Flocations%2Fus-central1%2Fworkflows%2Fwf_creacion_pedido_estandar_stage%2Fexecutions%2F591b7b0e-877d-46d9-9884-b62f38e3e4fb
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] GET https://apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/status?name=projects%2F72574958900%2Flocations%2Fus-central1%2Fworkflows%2Fwf_creacion_pedido_estandar_stage%2Fexecutions%2F591b7b0e-877d-46d9-9884-b62f38e3e4fb -> 200
+ℹ️  [ImpuestosDiferidosWorkflow] Interceptado: PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso6
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso6 -> 200
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "hcAwJAWpDeVjaYde1BE0"
+}
+ℹ️  [ImpuestosDiferidosWorkflow] Interceptado: PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/hcAwJAWpDeVjaYde1BE0
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/hcAwJAWpDeVjaYde1BE0 -> 200
+ℹ️  [ImpuestosDiferidosWorkflow] Interceptado: GET https://apinic12-sql5tfrt5q-uc.a.run.app/salesforce/consultar_venta_efectiva/793578
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] GET https://apinic12-sql5tfrt5q-uc.a.run.app/salesforce/consultar_venta_efectiva/793578 -> 200
+
+======================================================================
+🎯 📡 ENDPOINTS INTERCEPTADOS (MOCKOON-STYLE)
+======================================================================
+   • total: 5
+======================================================================
+
+
+======================================================================
+🎯 ▶ POST https://apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/ingresar-pedido
+======================================================================
+   • status: 200
+   • response: [object Object]
+======================================================================
+
+
+======================================================================
+🎯 ▶ GET https://apiworkflow-sql5tfrt5q-uc.a.run.app/workflow/status?name=projects%2F72574958900%2Flocations%2Fus-central1%2Fworkflows%2Fwf_creacion_pedido_estandar_stage%2Fexecutions%2F591b7b0e-877d-46d9-9884-b62f38e3e4fb
+======================================================================
+   • status: 200
+   • response: [object Object]
+======================================================================
+
+
+======================================================================
+🎯 ▶ PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/paso6
+======================================================================
+   • status: 200
+   • response: [object Object]
+======================================================================
+
+
+======================================================================
+🎯 ▶ PUT https://apifirestore-sql5tfrt5q-uc.a.run.app/firestore/upsert/hcAwJAWpDeVjaYde1BE0
+======================================================================
+   • status: 200
+   • response: [object Object]
+======================================================================
+
+
+======================================================================
+🎯 ▶ GET https://apinic12-sql5tfrt5q-uc.a.run.app/salesforce/consultar_venta_efectiva/793578
+======================================================================
+   • status: 200
+   • response: [object Object]
+======================================================================
+
+ℹ️  [ConfirmarPedidoStep] Verificando pantalla final de confirmación
+ℹ️  [ImpuestosDiferidosPage] Verificando pantalla final de confirmación del pedido
+✅ [ImpuestosDiferidosPage] Confirmación del pedido visible - fecha de entrega / proceso / valoración
+✅ [ConfirmarPedidoStep] Confirmación del pedido verificada
+📊 [ConfirmarPedidoStep] Endpoints interceptados: 5 de los esperados
+✅ [ConfirmarPedidoStep] Pedido confirmado - endpoints interceptados correctamente
+
+✅ ✅ ✅ [ImpuestosDiferidosWorkflow] ✅ FLUJO COMPLETO DE IMPUESTOS DIFERIDOS FINALIZADO EXITOSAMENTE
+
+
+======================================================================
+🎯 RESUMEN DE EJECUCIÓN
+======================================================================
+   • pasos: 6 pasos completados (con confirmación de pedido)
+   • saldosContables: Manual/Sin saldos
+   • plantillaDescargada: No
+   • tasaImpositiva: Estándar
+======================================================================
+
+✅ [TC15] Flujo alternativo de saldos completado
+
+✅ ✅ ✅ [TC15] TC15 finalizado exitosamente
+
+
+ℹ️  4 non-blocking error(s) ignored by filter.
+
+📋 3 console message(s) logged to stderr
