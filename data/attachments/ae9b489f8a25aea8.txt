@@ -1,0 +1,123 @@
+🎭️ [ImpuestosDiferidos-DemografixCompany] Preparando entorno para Impuestos Diferidos con DEMOGRAFIX S.A.
+🔐 [ImpuestosDiferidos-DemografixCompany] Iniciando sesión (de***@[OCULTO])
+🔐 [LoginPage] Iniciando sesión (de***@[OCULTO])
+✅ [LoginPage] Login completado
+✅ [ImpuestosDiferidos-DemografixCompany] Sesión iniciada correctamente
+🔍 [ImpuestosDiferidos-DemografixCompany] Dashboard cargado correctamente
+🎭️ [TC11] Múltiples intentos de carga de archivos (DEMOGRAFIX)
+ℹ️  [TC11] Intento 1: Archivo inválido (debe rechazarse) → Intento 2: Archivo válido (debe aceptarse)
+
+======================================================================
+🎯 VALIDANDO MÚLTIPLES INTENTOS DE SUBIDA DE ARCHIVO
+======================================================================
+======================================================================
+
+📋 Navegando a Impuestos Diferidos...
+✅ Navegación completada
+
+📍 Paso 1: Seleccionando año de evaluación
+📊 [ImpuestosDiferidosPage] Paso 1 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando año de evaluación: 2024
+✅ [ImpuestosDiferidosPage] Año 2024 seleccionado
+✅ [SelectEvaluationYearStep] Paso 1 completado
+
+📍 Paso 2: Seleccionando razón del estudio
+📊 [ImpuestosDiferidosPage] Paso 2 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando razón del estudio
+ℹ️  [ImpuestosDiferidosPage] Realizando scroll al fondo de la página
+✅ [ImpuestosDiferidosPage] Scroll al fondo completado - página completamente visible
+✅ [ImpuestosDiferidosPage] Estudio disponible seleccionado
+✅ [SelectReasonStep] Paso 2 completado
+📊 [ImpuestosDiferidosPage] Paso 3 de 6 verificado
+ℹ️  [VerifyMultipleFileUploadAttempts] Paso 3.1 - Seleccionando opción "Sí" para habilitación de controles de carga
+ℹ️  [ImpuestosDiferidosPage] Seleccionando opción "Sí tengo saldos contables"...
+ℹ️  [ImpuestosDiferidosPage] Acción: Hace visible el botón "Descargar Plantilla" y controles de carga
+✅ [ImpuestosDiferidosPage] ✅ Opción "Sí" seleccionada - Botón de descarga y controles de carga están ahora disponibles
+✅ [VerifyMultipleFileUploadAttempts] Controles de carga de archivo habilitados
+
+======================================================================
+🎯 🔴 INTENTO 1: ARCHIVO INVÁLIDO
+======================================================================
+   • archivo: impuestosdif-noHappypath.xlsx
+   • propósito: Validar rechazo de archivo con datos incorrectos
+   • resultadoEsperado: ❌ Botón Continuar DESHABILITADO
+======================================================================
+
+ℹ️  [VerifyMultipleFileUploadAttempts] Subiendo archivo inválido al servidor...
+ℹ️  [ImpuestosDiferidosPage] 📤 Iniciando carga de archivo de saldos contables
+ℹ️  [ImpuestosDiferidosPage]    • Nombre del archivo: impuestosdif-noHappypath.xlsx
+ℹ️  [ImpuestosDiferidosPage]    • Ruta local: ./tests/data/documents/impuestosdif-noHappypath.xlsx
+ℹ️  [ImpuestosDiferidosPage]    • Destino: Servidor para validación de estructura y datos
+📁 [ImpuestosDiferidosPage] Cargando archivo: impuestosdif-noHappypath.xlsx
+✅ [ImpuestosDiferidosPage] ✅ Archivo "impuestosdif-noHappypath.xlsx" cargado en el formulario - Enviando al servidor para validación
+✅ [VerifyMultipleFileUploadAttempts] Archivo inválido subido al servidor
+⏳ [VerifyMultipleFileUploadAttempts] Esperando 12 segundos para validación del archivo en el backend
+ℹ️  [VerifyMultipleFileUploadAttempts] Validación del servidor completada
+
+======================================================================
+🎯 VERIFICANDO ESTADO DEL BOTÓN TRAS ARCHIVO INVÁLIDO
+======================================================================
+   • estado: ❌ DESHABILITADO
+   • validación: El servidor detectó estructura/datos incorrectos
+======================================================================
+
+✅ [VerifyMultipleFileUploadAttempts] ✅ INTENTO 1 EXITOSO - Archivo inválido rechazado correctamente
+ℹ️  [VerifyMultipleFileUploadAttempts] Botón Continuar permanece deshabilitado (comportamiento correcto)
+ℹ️  [VerifyMultipleFileUploadAttempts] Removiendo archivo inválido...
+ℹ️  [ImpuestosDiferidosPage] 🗑️  Removiendo archivo cargado anteriormente
+ℹ️  [ImpuestosDiferidosPage] Acción: Limpiando estado del formulario para nuevo intento de carga
+✅ [ImpuestosDiferidosPage] ✅ Archivo removido exitosamente del formulario
+⏳ [ImpuestosDiferidosPage] Esperando 1.5 segundos para actualización de UI
+✅ [ImpuestosDiferidosPage] Formulario listo para siguiente intento de carga
+✅ [VerifyMultipleFileUploadAttempts] Archivo inválido removido
+⏳ [VerifyMultipleFileUploadAttempts] Esperando 2 segundos para actualización de UI
+
+======================================================================
+🎯 🟢 INTENTO 2: ARCHIVO VÁLIDO
+======================================================================
+   • archivo: impuestosdif2.xlsx
+   • propósito: Validar aceptación de archivo con datos correctos
+   • resultadoEsperado: ✅ Botón Continuar HABILITADO
+======================================================================
+
+ℹ️  [VerifyMultipleFileUploadAttempts] Subiendo archivo válido con saldos contables correctos...
+ℹ️  [ImpuestosDiferidosPage] 📤 Iniciando carga de archivo de saldos contables
+ℹ️  [ImpuestosDiferidosPage]    • Nombre del archivo: impuestosdif2.xlsx
+ℹ️  [ImpuestosDiferidosPage]    • Ruta local: ./tests/data/documents/impuestosdif2.xlsx
+ℹ️  [ImpuestosDiferidosPage]    • Destino: Servidor para validación de estructura y datos
+📁 [ImpuestosDiferidosPage] Cargando archivo: impuestosdif2.xlsx
+✅ [ImpuestosDiferidosPage] ✅ Archivo "impuestosdif2.xlsx" cargado en el formulario - Enviando al servidor para validación
+✅ [VerifyMultipleFileUploadAttempts] Archivo válido subido al servidor
+⏳ [VerifyMultipleFileUploadAttempts] Esperando 12 segundos para validación del archivo en el backend
+ℹ️  [VerifyMultipleFileUploadAttempts] Validación del servidor completada
+
+======================================================================
+🎯 VERIFICANDO ESTADO DEL BOTÓN TRAS ARCHIVO VÁLIDO
+======================================================================
+   • estadoEsperado: ✅ HABILITADO
+   • transición: Botón debe cambiar de DESHABILITADO → HABILITADO
+   • validación: El servidor aceptó estructura y datos correctos
+======================================================================
+
+
+======================================================================
+🎯 VERIFICANDO ESTADO DEL BOTÓN
+======================================================================
+   • estado: HABILITADO
+======================================================================
+
+ℹ️  [ImpuestosDiferidosPage] Estado esperado: HABILITADO
+✅ [ImpuestosDiferidosPage] Botón Continuar está HABILITADO
+✅ [VerifyMultipleFileUploadAttempts] ✅ INTENTO 2 EXITOSO - Botón Continuar habilitado correctamente
+ℹ️  [VerifyMultipleFileUploadAttempts] Validación dinámica completada: La UI responde correctamente a cambios de archivo
+
+✅ ✅ ✅ [VerifyMultipleFileUploadAttempts] ✅ PRUEBA COMPLETADA - Transiciones de estado de botón validadas correctamente
+
+✅ [TC11] Transición de estados del botón validada correctamente
+
+✅ ✅ ✅ [TC11] TC11 finalizado exitosamente
+
+
+ℹ️  4 non-blocking error(s) ignored by filter.
+
+📋 3 console message(s) logged to stderr

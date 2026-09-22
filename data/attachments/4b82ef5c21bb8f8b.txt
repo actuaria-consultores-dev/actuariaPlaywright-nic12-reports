@@ -1,0 +1,310 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: specs/ImpuestosDiferidos/crearImpuestosDif.test.ts >> Verificar creacion de Impuestos Diferidos >> Impuestos Diferidos | [SP] | TC17: Verificar error cuando campos de saldos contables están vacíos
+- Location: tests/specs/ImpuestosDiferidos/crearImpuestosDif.test.ts:180:2
+
+# Error details
+
+```
+Test timeout of 120000ms exceeded.
+```
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: locator('text=Paso 3 de 6')
+Expected: visible
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" with timeout 120000ms
+  - waiting for locator('text=Paso 3 de 6')
+  - Test timeout of 120000ms exceeded.
+
+```
+
+```yaml
+- banner:
+  - button "Notificaciones":
+    - img
+    - text: "0"
+  - button "image DEMOGRAFIX S.A.":
+    - img "image"
+    - paragraph: DEMOGRAFIX S.A.
+- complementary:
+  - link "Actuaria":
+    - /url: /dashboard
+    - img "Actuaria"
+  - button "abrir/cerrar menú"
+  - textbox "Buscar..."
+  - list:
+    - button "Inicio":
+      - img
+      - text: Inicio
+    - list:
+      - listitem: Panel General
+      - button "Informe de impuestos diferidos"
+      - link "Listado de informes":
+        - /url: /dashboard/impuestos-diferidos/mis-informes-nic12
+        - img
+        - text: Listado de informes
+      - link "Nuevo informe":
+        - /url: /dashboard/impuestos-diferidos/nueva-nic12
+        - img
+        - text: Nuevo informe
+  - paragraph: Actuaria+ Stage
+  - paragraph: soporteplus@actuaria.com
+  - text: v 1.11.3
+- heading "Hola, Rodrigo" [level=1]
+- paragraph: "Sesión anterior: hoy, 18:07 · hace 2 minutos"
+- button "Inicio"
+- button "Estudio actuarial"
+- button "Impuestos diferidos"
+- button "Actas de jubilación"
+- button "Control tributario"
+- button "Simulador de beneficios"
+- button "NavIA ᴮᵉᵗᵃ"
+- separator
+- heading "Solicitud de impuestos diferidos" [level=4]
+- paragraph: Completa los pasos para solicitar tu informe de impuestos diferidos.
+- paragraph: Paso 2 de 6
+- button "Volver"
+- heading "Informe de impuestos diferidos" [level=5]
+- paragraph: Estudios disponibles NIC19
+- grid:
+  - row "AÑO DE VALORACIÓN NÚMERO DE PROCESO JUBILACIÓN PATRONAL BONIFICACIÓN POR DESAHUCIO SELECCIONAR":
+    - columnheader "AÑO DE VALORACIÓN"
+    - columnheader "NÚMERO DE PROCESO"
+    - columnheader "JUBILACIÓN PATRONAL"
+    - columnheader "BONIFICACIÓN POR DESAHUCIO"
+    - columnheader "SELECCIONAR"
+  - rowgroup:
+    - row "2024 136750 4,512,676.30 1,657,223.70" [selected]:
+      - gridcell "2024"
+      - gridcell "136750"
+      - gridcell "4,512,676.30"
+      - gridcell "1,657,223.70"
+      - gridcell
+- text: 1 row selected
+- paragraph: 1–1 of 1
+- button "Go to previous page" [disabled]
+- button "Go to next page" [disabled]
+- alert: Error inesperado
+- button "Regresar"
+- button "Continuar"
+- link "Escríbenos a WhatsApp":
+  - /url: https://wa.me/593979133351/?text=Hola+Actuaria,+tengo+novedades+sobre+el+Portal+de+Clientes
+```
+
+# Test source
+
+```ts
+  28  | import { type Page, type Locator, expect } from '@playwright/test';
+  29  | import { SuperPage } from './SuperPage';
+  30  | import { createLogger } from '@helpers/logger';
+  31  | import { ExcelValidator } from '@helpers/excelValidator';
+  32  | import { type Step5SummaryData } from '../interfaces/impuestosDiferidosTypes';
+  33  | import { ACTION_TIMEOUT_MS, SLOW_ACTION_TIMEOUT_MS } from '@helpers/timeouts';
+  34  | import fs from 'fs'; 
+  35  | 
+  36  | export class ImpuestosDiferidosPage extends SuperPage {
+  37  | 	
+  38  | 	private pageLogger = createLogger('ImpuestosDiferidosPage');
+  39  | 
+  40  | 	impuestosDiferidosTabButton: Locator;
+  41  | 	crearNuevoInformeButton: Locator;
+  42  | 	yearEvaluationDropdown: Locator;
+  43  | 	selectRation: Locator;
+  44  | 	yesSaldosRatio: Locator;
+  45  | 	noSaldosRatio: Locator;
+  46  | 	noSaldosRegistradosRatio: Locator;
+  47  | 	fileUploadInput: Locator;
+  48  | 	aidFinalJubilacion: Locator;
+  49  | 	aidFinalDesahucio: Locator;
+  50  | 	continueButton: Locator;
+  51  | 	authorizeCheckbox: Locator;
+  52  | 	
+  53  | 	// Paso 4 - Tax Rate
+  54  | 	standardTaxRateRadio: Locator;
+  55  | 	specificTaxRateRadio: Locator;
+  56  | 	taxRateInput: Locator;
+  57  | 
+  58  | 	// Paso 6 - Confirmar pedido
+  59  | 	confirmarPedidoButton: Locator;
+  60  | 
+  61  | 	//------------
+  62  | 	// Mis Informes NIC12 (reports table)
+  63  | 	reportsTable: Locator;
+  64  | 	paginationDisplayedRows: Locator;
+  65  | 	tableHeaders: Locator;
+  66  | 	
+  67  | 	
+  68  | 	constructor(page: Page) {
+  69  | 		super(page);
+  70  | 
+  71  | 		//------------
+  72  | 		// Navigation
+  73  | 		this.impuestosDiferidosTabButton = page.getByRole('button', { name: 'Impuestos diferidos' });
+  74  | 		this.crearNuevoInformeButton = page.getByRole('button', { name: 'Crear nuevo informe' })
+  75  | 		this.continueButton = page.getByRole('button', { name: 'Continuar' });
+  76  | 
+  77  | 		//------------
+  78  | 		// Paso 6 - Confirmar pedido
+  79  | 		this.confirmarPedidoButton = page.getByRole('button', { name: 'Confirmar pedido' });
+  80  | 
+  81  | 		//------------
+  82  | 		// Paso 1
+  83  | 		this.yearEvaluationDropdown = page.getByRole('option', { name: '2024' });
+  84  | 
+  85  | 		//------------
+  86  | 		// Paso 2
+  87  |  		this.selectRation = page.locator('.MuiBox-root.css-rfercm')
+  88  | 		
+  89  | 		//------------
+  90  | 		// Paso 3
+  91  | 		this.yesSaldosRatio = page.getByLabel('Si', { exact: true });
+  92  | 		this.noSaldosRatio = page.getByLabel('No', { exact: true });
+  93  | 		this.noSaldosRegistradosRatio = page.getByRole('radio', { name: 'La entidad no registra saldos' });
+  94  | 		this.fileUploadInput = page.locator('input[type="file"]');
+  95  | 		this.aidFinalJubilacion = page.locator('input[name="pasos\\.paso3\\.saldosContables\\.aidFinalJubilacion"]');
+  96  | 		this.aidFinalDesahucio = page.locator('input[name="pasos\\.paso3\\.saldosContables\\.aidFinalDesahucio"]');
+  97  | 		// Use getByRole with accessible name from the page snapshot
+  98  | 		this.authorizeCheckbox = page.getByRole('checkbox', { name: 'Autorizo la estimación y verificación de los saldos reportados.' });
+  99  | 		
+  100 | 		//------------
+  101 | 		// Paso 4 - Tax Rate
+  102 | 		this.standardTaxRateRadio = page.getByLabel('Estándar');
+  103 | 		this.specificTaxRateRadio = page.getByLabel('Específico');
+  104 | 		this.taxRateInput = page.locator('input[name="pasos.paso4.tasaImpuesto"]');
+  105 | 
+  106 | 		//------------
+  107 | 		// Mis Informes NIC12 (reports table)
+  108 | 		this.reportsTable = page.locator('table.MuiTable-root');
+  109 | 		this.paginationDisplayedRows = page.locator('.MuiTablePagination-displayedRows').first();
+  110 | 		this.tableHeaders = page.locator('table thead th');
+  111 | 	}
+  112 | 
+  113 | 	/**
+  114 | 	 * Navigate to Impuestos Diferidos section and start new report
+  115 | 	 */
+  116 | 	async navigateToImpuestosDiferidos() {
+  117 | 		console.log('📋 Navegando a Impuestos Diferidos...');
+  118 | 		await this.impuestosDiferidosTabButton.click({ timeout: SLOW_ACTION_TIMEOUT_MS });
+  119 | 		await this.crearNuevoInformeButton.click({ timeout: ACTION_TIMEOUT_MS });
+  120 | 		console.log('✅ Navegación completada');
+  121 | 	}
+  122 | 
+  123 | 	/**
+  124 | 	 * Verify current step in the wizard
+  125 | 	 */
+  126 | 	async verifyStep(stepNumber: string, timeout: number = 15000) {
+  127 | 		const stepText = `Paso ${stepNumber} de 6`; // Small wait before checking
+> 128 | 		await expect(this.page.locator(`text=${stepText}`)).toBeVisible({ timeout });
+      |                                                       ^ Error: expect(locator).toBeVisible() failed
+  129 | 		this.pageLogger.verificacion(`Paso ${stepNumber} de 6 verificado`);
+  130 | 	}
+  131 | 
+  132 | 	/**
+  133 | 	 * Select evaluation year in Step 1
+  134 | 	 */
+  135 | 	async selectEvaluationYear(year: string) {
+  136 | 		this.pageLogger.info(`Seleccionando año de evaluación: ${year}`);
+  137 | 		// Wait briefly to ensure form is ready
+  138 | 		await this.page.waitForTimeout(500);
+  139 | 		// Close dropdown if it's already open
+  140 | 		try {
+  141 | 			const openButton = this.page.getByLabel('Open');
+  142 | 			await openButton.click({ timeout: 10000 });
+  143 | 		} catch (e) {
+  144 | 			// Dropdown might already be closed, continue
+  145 | 		}
+  146 | 		await this.page.waitForTimeout(300);
+  147 | 		await this.page.getByRole('option', { name: year }).click({ timeout: ACTION_TIMEOUT_MS });
+  148 | 		this.pageLogger.exito(`Año ${year} seleccionado`);
+  149 | 	}
+  150 | 
+  151 | 	/**
+  152 | 	 * Wait for form to be ready after an error (for error recovery scenarios)
+  153 | 	 * This helps with intermittent backend errors by ensuring the page state is stable
+  154 | 	 */
+  155 | 	async waitForFormReady(timeout: number = 10000) {
+  156 | 		this.pageLogger.info('Esperando a que el formulario esté listo para interacción');
+  157 | 		try {
+  158 | 			// Wait for the year dropdown to be visible
+  159 | 			await this.page.getByLabel('Open').waitFor({ state: 'visible', timeout });
+  160 | 			// Small additional wait for any animations or state updates
+  161 | 			await this.page.waitForTimeout(500);
+  162 | 			this.pageLogger.exito('Formulario listo para continuar');
+  163 | 		} catch (e) {
+  164 | 			this.pageLogger.advertencia('Timeout esperando formulario, continuando con precaución');
+  165 | 		}
+  166 | 	}
+  167 | 
+  168 | 	/**
+  169 | 	 * Recover from error state by ensuring page is ready
+  170 | 	 * Used when recovering from a failed year selection
+  171 | 	 * Includes page reload if necessary to clear bad state
+  172 | 	 */
+  173 | 	async recoverFromError(shouldReload: boolean = false) {
+  174 | 		this.pageLogger.info('Iniciando recuperación de error');
+  175 | 		// Wait a bit for any error modal/message to settle
+  176 | 		await this.page.waitForTimeout(800);
+  177 | 		
+  178 | 		// Check if there's an error close button and click it if exists
+  179 | 		const closeButtons = this.page.getByRole('button', { name: /close|cerrar|dismiss/i });
+  180 | 		const count = await closeButtons.count();
+  181 | 		if (count > 0) {
+  182 | 			try {
+  183 | 				await closeButtons.first().click({ timeout: 3000 });
+  184 | 				this.pageLogger.info('Botón de cerrar error clickeado');
+  185 | 			} catch (e) {
+  186 | 				this.pageLogger.advertencia('No se pudo cerrar el error');
+  187 | 			}
+  188 | 		}
+  189 | 		
+  190 | 		// If shouldReload is true, reload with domcontentloaded (faster than networkidle)
+  191 | 		if (shouldReload) {
+  192 | 			this.pageLogger.info('Recargando página para limpiar estado de error');
+  193 | 			try {
+  194 | 				// Use domcontentloaded instead of networkidle to avoid hanging on unstable backends
+  195 | 				await this.page.reload({ waitUntil: 'domcontentloaded' });
+  196 | 				await this.page.waitForTimeout(1000); // Additional wait for page to stabilize
+  197 | 				this.pageLogger.info('Página recargada');
+  198 | 				
+  199 | 				// Navigate back to Impuestos Diferidos
+  200 | 				await this.navigateToImpuestosDiferidos();
+  201 | 				this.pageLogger.exito('Página recargada y re-navegada');
+  202 | 			} catch (e) {
+  203 | 				this.pageLogger.advertencia(`Error durante recarga: ${e}. Continuando sin recarga.`);
+  204 | 				// Don't fail, just continue
+  205 | 			}
+  206 | 		} else {
+  207 | 			// Wait for form to be ready after error recovery
+  208 | 			await this.waitForFormReady();
+  209 | 		}
+  210 | 		
+  211 | 		this.pageLogger.exito('Recuperación completada');
+  212 | 	}
+  213 | 
+  214 | 	/**
+  215 | 	 * Click the Continue button
+  216 | 	 */
+  217 | 	async clickContinue() {
+  218 | 		await this.continueButton.click({ timeout: SLOW_ACTION_TIMEOUT_MS });
+  219 | 		await this.page.waitForTimeout(1000); // Small wait for navigation
+  220 | 	}
+  221 | 
+  222 | 	async noClickContinueActive() {
+  223 | 		await expect(this.continueButton).not.toBeEnabled();
+  224 | 	}
+  225 | 	/**
+  226 | 	 * Select the first available reason in Step 2
+  227 | 	 */
+  228 | 	async selectFirstReason(timeout: number = 10000) {
+```

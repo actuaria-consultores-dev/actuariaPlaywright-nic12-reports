@@ -1,0 +1,96 @@
+🎭️ [ImpuestosDiferidos-CrearNuevo] Preparando entorno para Impuestos Diferidos
+🔐 [ImpuestosDiferidos-CrearNuevo] Iniciando sesión (de***@[OCULTO])
+🔐 [LoginPage] Iniciando sesión (de***@[OCULTO])
+✅ [LoginPage] Login completado
+✅ [ImpuestosDiferidos-CrearNuevo] Sesión iniciada correctamente
+🔍 [ImpuestosDiferidos-CrearNuevo] Dashboard cargado correctamente
+🎭️ [TC14] Corrección de tasa inválida (0% → 22%)
+ℹ️  [TC14] Verificando flujo de corrección: ingresa 0% → corrige a 22% → continúa
+
+======================================================================
+🎯 INICIANDO FLUJO DE CORRECCIÓN DE TASA IMPOSITIVA
+======================================================================
+======================================================================
+
+📋 Navegando a Impuestos Diferidos...
+✅ Navegación completada
+
+📍 Paso 1: Seleccionando año de evaluación
+📊 [ImpuestosDiferidosPage] Paso 1 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando año de evaluación: 2024
+✅ [ImpuestosDiferidosPage] Año 2024 seleccionado
+✅ [SelectEvaluationYearStep] Paso 1 completado
+
+📍 Paso 2: Seleccionando razón del estudio
+📊 [ImpuestosDiferidosPage] Paso 2 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando razón del estudio
+ℹ️  [ImpuestosDiferidosPage] Realizando scroll al fondo de la página
+✅ [ImpuestosDiferidosPage] Scroll al fondo completado - página completamente visible
+✅ [ImpuestosDiferidosPage] Estudio disponible seleccionado
+✅ [SelectReasonStep] Paso 2 completado
+
+📍 Paso 3: Configurando saldos contables
+ℹ️  [ConfigureSaldosContablesStep] Modo: Ingreso manual de saldos contables
+📊 [ImpuestosDiferidosPage] Paso 3 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Ingresando saldos contables manualmente
+✅ [ImpuestosDiferidosPage] Seleccionado: No (ingreso manual)
+✅ [ImpuestosDiferidosPage] Estimación autorizada (checkbox marcado)
+ℹ️  [ImpuestosDiferidosPage] AID Final Jubilación: $500
+ℹ️  [ImpuestosDiferidosPage] AID Final Desahucio: $400
+✅ [ImpuestosDiferidosPage] Saldos manuales ingresados
+✅ [ConfigureSaldosContablesStep] Paso 3 completado
+
+📍 Paso 4: Probando validación de tasa impositiva
+📊 [ImpuestosDiferidosPage] Paso 4 de 6 verificado
+
+======================================================================
+🎯 PARTE 1: INGRESANDO TASA INVÁLIDA
+======================================================================
+   • tasa: 0%
+   • resultado: Error y botón deshabilitado
+======================================================================
+
+ℹ️  [ImpuestosDiferidosPage] Seleccionando opción de tasa: Específico
+✅ [ImpuestosDiferidosPage] Tasa específica seleccionada
+ℹ️  [ImpuestosDiferidosPage] Ingresando tasa de impuesto: 0%
+✅ [ImpuestosDiferidosPage] Tasa 0% ingresada
+
+======================================================================
+🎯 PARTE 2: CORRIGIENDO A TASA VÁLIDA
+======================================================================
+   • tasa: 22%
+   • resultado: Sin error y botón habilitado
+======================================================================
+
+ℹ️  [ImpuestosDiferidosPage] Ingresando tasa de impuesto: 22%
+✅ [ImpuestosDiferidosPage] Tasa 22% ingresada
+ℹ️  [ImpuestosDiferidosPage] Verificando que no hay mensaje de error de tasa
+✅ [ImpuestosDiferidosPage] No hay mensaje de error
+
+======================================================================
+🎯 VERIFICANDO ESTADO DEL BOTÓN
+======================================================================
+   • estado: HABILITADO
+======================================================================
+
+ℹ️  [ImpuestosDiferidosPage] Estado esperado: HABILITADO
+✅ [ImpuestosDiferidosPage] Botón Continuar está HABILITADO
+✅ [VerifyTaxRateCorrection] Tasa corregida exitosamente
+
+📍 Paso 5: Verificando resumen de información
+📊 [ImpuestosDiferidosPage] Paso 5 de 6 verificado
+⚠️  [VerifyStep5Summary] No se proporcionó configuración de resumen, omitiendo validación
+ℹ️  [ImpuestosDiferidosPage] Confirmando detalles de facturación
+✅ [ImpuestosDiferidosPage] Detalles de facturación confirmados
+✅ [VerifyStep5Summary] Paso 5 completado
+
+✅ ✅ ✅ [VerifyTaxRateCorrection] Flujo de corrección completado exitosamente
+
+✅ [TC14] Flujo de corrección de tasa completado
+
+✅ ✅ ✅ [TC14] TC14 finalizado exitosamente
+
+
+ℹ️  4 non-blocking error(s) ignored by filter.
+
+📋 3 console message(s) logged to stderr

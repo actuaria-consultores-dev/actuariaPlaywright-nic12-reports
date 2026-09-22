@@ -1,0 +1,18 @@
+🎭️ [ImpuestosDiferidos-MisInformesNic12] Preparando entorno para Mis Informes NIC12
+🔐 [ImpuestosDiferidos-MisInformesNic12] Iniciando sesión (de***@[OCULTO])
+🔐 [LoginPage] Iniciando sesión (de***@[OCULTO])
+✅ [LoginPage] Login completado
+✅ [ImpuestosDiferidos-MisInformesNic12] Sesión iniciada correctamente
+🔍 [ImpuestosDiferidos-MisInformesNic12] Dashboard cargado correctamente
+🎭️ [TC12] Verificación de la tabla de informes pendientes
+ℹ️  [TC12] Navegando a la tabla de informes → seleccionando Informes Pendientes
+🎭️ [MisInformesNic12-TableWorkflow] Iniciando flujo: verificar tabla de informes de Impuestos Diferidos
+🔍 [MisInformesNic12-TableWorkflow] Navegando a /dashboard/impuestos-diferidos/mis-informes-nic12
+🔍 [ImpuestosDiferidosPage] Navegando a Mis Informes NIC12: /dashboard/impuestos-diferidos/mis-informes-nic12
+❌ [TC12] TC12 falló
+   Detalle: page.goto: net::ERR_ABORTED at https://act-compass-stage-proj.firebaseapp.com/dashboard/impuestos-diferidos/mis-informes-nic12
+Call log:
+  - navigating to "https://act-compass-stage-proj.firebaseapp.com/dashboard/impuestos-diferidos/mis-informes-nic12", waiting until "load"
+
+
+📋 2 console message(s) logged to stderr

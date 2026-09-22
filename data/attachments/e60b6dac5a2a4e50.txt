@@ -1,0 +1,284 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: specs/ImpuestosDiferidos/crearImpuestosDifTwo.test.ts >> Verificar tabla de informes de Impuestos Diferidos y eliminar informes pendientes >> Impuestos Diferidos | [SP] | TC13: Eliminar un informe pendiente y verificar que el total de la tabla se reduce
+- Location: tests/specs/ImpuestosDiferidos/crearImpuestosDifTwo.test.ts:222:2
+
+# Error details
+
+```
+Error: No se pudo confirmar que la fila fue eliminada de la tabla
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f2e2]:
+  - generic [ref=f2e3]:
+    - banner [ref=f2e4]:
+      - generic [ref=f2e6]:
+        - button "Notificaciones" [ref=f2e7] [cursor=pointer]:
+          - generic [ref=f2e8]: "0"
+        - button [ref=f2e11] [cursor=pointer]:
+          - img "image" [ref=f2e12]
+          - paragraph [ref=f2e13]: DEMOGRAFIX S.A.
+    - complementary [ref=f2e16]:
+      - generic [ref=f2e17]:
+        - link [ref=f2e18] [cursor=pointer]:
+          - /url: /dashboard
+          - img "Actuaria" [ref=f2e19]
+        - button "abrir/cerrar menú" [ref=f2e20] [cursor=pointer]
+      - generic [ref=f2e25]:
+        - textbox "Buscar..." [ref=f2e29]
+        - group
+      - list [ref=f2e31]:
+        - button "Inicio" [ref=f2e32] [cursor=pointer]
+        - list [ref=f2e38]:
+          - listitem [ref=f2e39]: Panel General
+          - generic [ref=f2e40]:
+            - button "Informe de impuestos diferidos" [ref=f2e41] [cursor=pointer]
+            - generic [ref=f2e52]:
+              - link "Listado de informes" [ref=f2e53] [cursor=pointer]:
+                - /url: /dashboard/impuestos-diferidos/mis-informes-nic12
+              - link "Nuevo informe" [ref=f2e59] [cursor=pointer]:
+                - /url: /dashboard/impuestos-diferidos/nueva-nic12
+      - generic [ref=f2e66]:
+        - paragraph [ref=f2e67]: Actuaria+ Stage
+        - paragraph [ref=f2e68]: soporteplus@actuaria.com
+        - generic [ref=f2e69]: v 1.11.3
+    - generic [ref=f2e74]:
+      - generic [ref=f2e75]:
+        - heading "Hola, Rodrigo" [level=1] [ref=f2e76]
+        - paragraph [ref=f2e77]: "Sesión anterior: hoy, 18:09 · hace 12 segundos"
+      - generic [ref=f2e78]:
+        - button "Inicio" [ref=f2e79] [cursor=pointer]
+        - button "Estudio actuarial" [ref=f2e81] [cursor=pointer]
+        - button "Impuestos diferidos" [ref=f2e83] [cursor=pointer]
+        - button "Actas de jubilación" [ref=f2e85] [cursor=pointer]
+        - button "Control tributario" [ref=f2e87] [cursor=pointer]
+        - button "Simulador de beneficios" [ref=f2e89] [cursor=pointer]
+        - button "NavIA ᴮᵉᵗᵃ" [ref=f2e91] [cursor=pointer]
+      - separator [ref=f2e93]
+      - generic [ref=f2e94]:
+        - generic [ref=f2e95]:
+          - generic [ref=f2e96]:
+            - heading "Últimos informes creados" [level=4] [ref=f2e97]
+            - paragraph [ref=f2e98]: Retoma los informes de impuestos diferidos que dejaste pendientes o crea uno nuevo.
+          - button [ref=f2e101] [cursor=pointer]
+        - generic [ref=f2e104]:
+          - generic [ref=f2e106]:
+            - textbox "Buscar" [ref=f2e110]
+            - group
+          - generic [ref=f2e111]:
+            - tablist "basic tabs example" [ref=f2e115]:
+              - tab "Informes" [ref=f2e116] [cursor=pointer]
+              - tab "Informes Pendientes" [selected] [ref=f2e117] [cursor=pointer]
+            - tabpanel "Informes Pendientes" [ref=f2e119]:
+              - generic [ref=f2e120]:
+                - table "table" [ref=f2e122]:
+                  - rowgroup [ref=f2e123]:
+                    - row [ref=f2e124]:
+                      - columnheader "FECHA CREACIÓN" [ref=f2e125]
+                      - columnheader "NOMBRE DE LA EMPRESA" [ref=f2e126]
+                      - columnheader "RUC" [ref=f2e127]
+                      - columnheader "NÚMERO DE PROCESO" [ref=f2e128]
+                      - columnheader "ESTADO" [ref=f2e129]
+                      - columnheader "ACCIÓN" [ref=f2e130]
+                  - rowgroup [ref=f2e131]:
+                    - row [ref=f2e132]:
+                      - cell "10/09/2026" [ref=f2e133]
+                      - cell "DEMOGRAFIX S.A." [ref=f2e134]
+                      - cell "1006487552001" [ref=f2e135]
+                      - cell "No disponible" [ref=f2e136]
+                      - cell "Pendiente" [ref=f2e137]
+                      - cell [ref=f2e144]:
+                        - generic [ref=f2e145]:
+                          - generic "Eliminar" [ref=f2e146]:
+                            - button [ref=f2e147] [cursor=pointer]
+                          - generic "Continuar con el informe" [ref=f2e150]:
+                            - link [ref=f2e151] [cursor=pointer]:
+                              - /url: /dashboard/impuestos-diferidos/nueva-nic12/16tUB8b065NQaRbzskt2
+                    - row [ref=f2e154]:
+                      - cell "22/09/2026" [ref=f2e155]
+                      - cell "DEMOGRAFIX S.A." [ref=f2e156]
+                      - cell "1006487552001" [ref=f2e157]
+                      - cell "No disponible" [ref=f2e158]
+                      - cell "Pendiente" [ref=f2e159]
+                      - cell [ref=f2e166]:
+                        - generic [ref=f2e167]:
+                          - generic "Eliminar" [ref=f2e168]:
+                            - button [ref=f2e169] [cursor=pointer]
+                          - generic "Continuar con el informe" [ref=f2e172]:
+                            - link [ref=f2e173] [cursor=pointer]:
+                              - /url: /dashboard/impuestos-diferidos/nueva-nic12/1RQElvVxNFdv3CZH3fKg
+                    - row [ref=f2e176]:
+                      - cell "22/09/2026" [ref=f2e177]
+                      - cell "DEMOGRAFIX S.A." [ref=f2e178]
+                      - cell "1006487552001" [ref=f2e179]
+                      - cell "No disponible" [ref=f2e180]
+                      - cell "Pendiente" [ref=f2e181]
+                      - cell [ref=f2e188]:
+                        - generic [ref=f2e189]:
+                          - generic "Eliminar" [ref=f2e190]:
+                            - button [ref=f2e191] [cursor=pointer]
+                          - generic "Continuar con el informe" [ref=f2e194]:
+                            - link [ref=f2e195] [cursor=pointer]:
+                              - /url: /dashboard/impuestos-diferidos/nueva-nic12/4kaD8OZejESJyURs7hnu
+                    - row [ref=f2e198]:
+                      - cell "27/08/2026" [ref=f2e199]
+                      - cell "DEMOGRAFIX S.A." [ref=f2e200]
+                      - cell "1006487552001" [ref=f2e201]
+                      - cell "No disponible" [ref=f2e202]
+                      - cell "Pendiente" [ref=f2e203]
+                      - cell [ref=f2e210]:
+                        - generic [ref=f2e211]:
+                          - generic "Eliminar" [ref=f2e212]:
+                            - button [ref=f2e213] [cursor=pointer]
+                          - generic "Continuar con el informe" [ref=f2e216]:
+                            - link [ref=f2e217] [cursor=pointer]:
+                              - /url: /dashboard/impuestos-diferidos/nueva-nic12/4z9EEqKoP861hFd2fKZP
+                    - row [ref=f2e220]:
+                      - cell "27/08/2026" [ref=f2e221]
+                      - cell "DEMOGRAFIX S.A." [ref=f2e222]
+                      - cell "1006487552001" [ref=f2e223]
+                      - cell "No disponible" [ref=f2e224]
+                      - cell "Pendiente" [ref=f2e225]
+                      - cell [ref=f2e232]:
+                        - generic [ref=f2e233]:
+                          - generic "Eliminar" [ref=f2e234]:
+                            - button [ref=f2e235] [cursor=pointer]
+                          - generic "Continuar con el informe" [ref=f2e238]:
+                            - link [ref=f2e239] [cursor=pointer]:
+                              - /url: /dashboard/impuestos-diferidos/nueva-nic12/573hmifY1TkyEKpnIZdx
+                - generic [ref=f2e243]:
+                  - paragraph [ref=f2e244]: Filas por página
+                  - generic [ref=f2e245]:
+                    - combobox "Filas por página 5" [ref=f2e246] [cursor=pointer]: "5"
+                    - textbox: "5"
+                  - paragraph [ref=f2e247]: 1-5 de 340
+                  - generic [ref=f2e248]:
+                    - button "Go to previous page" [disabled]
+                    - button "Go to next page" [ref=f2e249] [cursor=pointer]
+  - link "Escríbenos a WhatsApp" [ref=f2e252] [cursor=pointer]:
+    - /url: https://wa.me/593979133351/?text=Hola+Actuaria,+tengo+novedades+sobre+el+Portal+de+Clientes
+```
+
+# Test source
+
+```ts
+  965  | 
+  966  | 	/**
+  967  | 	 * Wait for the delete confirmation dialog to close.
+  968  | 	 * On stage the backend takes ~40s to process the deletion; the dialog simply
+  969  | 	 * disappears once it is done (no success message is shown).
+  970  | 	 * @param timeout - Max time to wait for the dialog to close (ms)
+  971  | 	 */
+  972  | 	async waitForDeleteDialogToClose(timeout: number = 70000): Promise<void> {
+  973  | 		this.pageLogger.espera(`Esperando que el diálogo de eliminación se cierre (máx ${timeout / 1000}s)`);
+  974  | 		const dialog = this.page.getByRole('dialog');
+  975  | 		await expect(dialog).toBeHidden({ timeout });
+  976  | 		this.pageLogger.exito('Diálogo de eliminación cerrado');
+  977  | 	}
+  978  | 
+  979  | 	/**
+  980  | 	 * Wait until the pagination total reaches the expected value (polls).
+  981  | 	 * Used after deleting a pending report to confirm the total decreased by 1
+  982  | 	 * (e.g. "1-5 de 255" → "1-5 de 254").
+  983  | 	 * @param expected - Expected total
+  984  | 	 * @param timeout - Max time to poll (ms)
+  985  | 	 */
+  986  | 	async waitForPaginationTotal(expected: number, timeout: number = 70000): Promise<number> {
+  987  | 		this.pageLogger.espera(`Esperando total de informes = ${expected}`);
+  988  | 		const startTime = Date.now();
+  989  | 		let currentTotal = -1;
+  990  | 
+  991  | 		while (Date.now() - startTime < timeout) {
+  992  | 			try {
+  993  | 				currentTotal = await this.extractPaginationTotal();
+  994  | 				if (currentTotal === expected) {
+  995  | 					break;
+  996  | 				}
+  997  | 				this.pageLogger.info(`⏳ Total actual ${currentTotal}, esperado ${expected} - reintentando`);
+  998  | 			} catch (e) {
+  999  | 				this.pageLogger.advertencia(`No se pudo leer la paginación aún: ${(e as Error).message}`);
+  1000 | 			}
+  1001 | 			await this.page.waitForTimeout(3000);
+  1002 | 		}
+  1003 | 
+  1004 | 		if (currentTotal !== expected) {
+  1005 | 			throw new Error(
+  1006 | 				`El total de la paginación no se actualizó. Esperado: ${expected}, Actual: ${currentTotal}`
+  1007 | 			);
+  1008 | 		}
+  1009 | 
+  1010 | 		this.pageLogger.exito(`Total de informes actualizado correctamente: ${currentTotal}`);
+  1011 | 		return currentTotal;
+  1012 | 	}
+  1013 | 
+  1014 | 	/**
+  1015 | 	 * Verify that the report deletion was successful by comparing table data
+  1016 | 	 * before and after the deletion. Confirms that at least one row that existed
+  1017 | 	 * before is now missing (or that the row count changed).
+  1018 | 	 * @param initialTableData - Rows captured before deleting
+  1019 | 	 * @param finalTableData - Rows captured after deleting
+  1020 | 	 */
+  1021 | 	async verifyReportDeletion(
+  1022 | 		initialTableData: Array<Array<string>>,
+  1023 | 		finalTableData: Array<Array<string>>
+  1024 | 	): Promise<void> {
+  1025 | 		this.pageLogger.info('Comparando datos de tabla para validar eliminación');
+  1026 | 
+  1027 | 		const initialDataString = JSON.stringify(initialTableData);
+  1028 | 		const finalDataString = JSON.stringify(finalTableData);
+  1029 | 		this.pageLogger.info(
+  1030 | 			`Conteo de filas: Antes: ${initialTableData.length}, Después: ${finalTableData.length}`
+  1031 | 		);
+  1032 | 
+  1033 | 		if (initialDataString === finalDataString) {
+  1034 | 			this.pageLogger.advertencia('Datos de tabla idénticos - la eliminación pudo haber fallado');
+  1035 | 			throw new Error('Datos de tabla sin cambios - validación de eliminación falló');
+  1036 | 		}
+  1037 | 
+  1038 | 		// Confirm at least one row from the initial data is missing in the final data
+  1039 | 		let deletionConfirmed = false;
+  1040 | 		for (let i = 0; i < initialTableData.length; i++) {
+  1041 | 			const initialRow = JSON.stringify(initialTableData[i]);
+  1042 | 			const rowExistsInFinal = finalTableData.some(
+  1043 | 				(finalRow: Array<string>) => JSON.stringify(finalRow) === initialRow
+  1044 | 			);
+  1045 | 
+  1046 | 			if (!rowExistsInFinal) {
+  1047 | 				this.pageLogger.exito(`Confirmado: Fila ${i + 1} fue eliminada de la tabla`);
+  1048 | 				this.pageLogger.info(`Datos de fila eliminada: ${initialTableData[i].join(' | ')}`);
+  1049 | 				deletionConfirmed = true;
+  1050 | 				break;
+  1051 | 			}
+  1052 | 		}
+  1053 | 
+  1054 | 		if (!deletionConfirmed) {
+  1055 | 			// Fallback: if no specific row is missing, the row count must have changed
+  1056 | 			if (finalTableData.length !== initialTableData.length) {
+  1057 | 				this.pageLogger.exito(
+  1058 | 					`Tamaño de tabla cambió: ${initialTableData.length} → ${finalTableData.length}`
+  1059 | 				);
+  1060 | 				deletionConfirmed = true;
+  1061 | 			}
+  1062 | 		}
+  1063 | 
+  1064 | 		if (!deletionConfirmed) {
+> 1065 | 			throw new Error('No se pudo confirmar que la fila fue eliminada de la tabla');
+       |          ^ Error: No se pudo confirmar que la fila fue eliminada de la tabla
+  1066 | 		}
+  1067 | 
+  1068 | 		this.pageLogger.completado('Verificación de eliminación de informe completada exitosamente');
+  1069 | 	}
+  1070 | }
+  1071 | 
+  1072 | 
+  1073 | 
+```

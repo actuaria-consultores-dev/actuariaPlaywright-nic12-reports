@@ -1,0 +1,70 @@
+🎭️ [ImpuestosDiferidos-CrearNuevo] Preparando entorno para Impuestos Diferidos
+🔐 [ImpuestosDiferidos-CrearNuevo] Iniciando sesión (de***@[OCULTO])
+🔐 [LoginPage] Iniciando sesión (de***@[OCULTO])
+✅ [LoginPage] Login completado
+✅ [ImpuestosDiferidos-CrearNuevo] Sesión iniciada correctamente
+🔍 [ImpuestosDiferidos-CrearNuevo] Dashboard cargado correctamente
+🎭️ [TC17] Validación: campos de saldos vacíos
+ℹ️  [TC17] Verificando validación de campos requeridos
+
+======================================================================
+🎯 INICIANDO VALIDACIÓN DE CAMPOS VACÍOS
+======================================================================
+======================================================================
+
+📋 Navegando a Impuestos Diferidos...
+✅ Navegación completada
+
+📍 Paso 1: Seleccionando año de evaluación
+📊 [ImpuestosDiferidosPage] Paso 1 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando año de evaluación: 2024
+✅ [ImpuestosDiferidosPage] Año 2024 seleccionado
+✅ [SelectEvaluationYearStep] Paso 1 completado
+
+📍 Paso 2: Seleccionando razón del estudio
+📊 [ImpuestosDiferidosPage] Paso 2 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando razón del estudio
+ℹ️  [ImpuestosDiferidosPage] Realizando scroll al fondo de la página
+✅ [ImpuestosDiferidosPage] Scroll al fondo completado - página completamente visible
+✅ [ImpuestosDiferidosPage] Estudio disponible seleccionado
+✅ [SelectReasonStep] Paso 2 completado
+📊 [ImpuestosDiferidosPage] Paso 3 de 6 verificado
+ℹ️  [VerifyEmptyBalanceValidation] Configurando saldos contables con campos vacíos
+ℹ️  [ImpuestosDiferidosPage] Configurando formulario con campos vacíos
+✅ [ImpuestosDiferidosPage] Seleccionado: No (ingreso manual)
+✅ [ImpuestosDiferidosPage] Estimación autorizada (checkbox marcado)
+⚠️  [ImpuestosDiferidosPage] Campos de saldo dejados VACÍOS (sin llenar)
+ℹ️  [ImpuestosDiferidosPage] AID Final Jubilación: [VACÍO]
+ℹ️  [ImpuestosDiferidosPage] AID Final Desahucio: [VACÍO]
+✅ [ImpuestosDiferidosPage] Configuración completada - campos vacíos con autorización
+ℹ️  [VerifyEmptyBalanceValidation] Intentando hacer clic en botón Continuar
+⏳ [VerifyEmptyBalanceValidation] Esperando validación de campos vacíos
+ℹ️  [VerifyEmptyBalanceValidation] Verificando mensajes de error para campos vacíos
+
+======================================================================
+🎯 VERIFICANDO MENSAJES DE ERROR PARA CAMPOS VACÍOS
+======================================================================
+======================================================================
+
+ℹ️  [ImpuestosDiferidosPage] Buscando 2 mensajes: "Ingrese el valor"
+📊 [ImpuestosDiferidosPage] Número de mensajes de error encontrados: 2
+✅ [ImpuestosDiferidosPage] 2 mensajes de error presente(s)
+ℹ️  [ImpuestosDiferidosPage] Verificando error en campo AID Jubilación Patronal
+✅ [ImpuestosDiferidosPage] Error verificado para Jubilación
+ℹ️  [ImpuestosDiferidosPage] Verificando error en campo AID Bonificación por Desahucio
+✅ [ImpuestosDiferidosPage] Error verificado para Desahucio
+✅ [ImpuestosDiferidosPage] Ambos mensajes de error "Ingrese el valor" verificados
+ℹ️  [VerifyEmptyBalanceValidation] Verificando que el formulario permanece en Paso 3 (no avanzó)
+📊 [ImpuestosDiferidosPage] Paso 3 de 6 verificado
+✅ [VerifyEmptyBalanceValidation] Validación correcta: Los campos vacíos previenen el avance a Paso 4
+
+✅ ✅ ✅ [VerifyEmptyBalanceValidation] Validación de campos vacíos completada exitosamente
+
+✅ [TC17] Validación de campos vacíos completada
+
+✅ ✅ ✅ [TC17] TC17 finalizado exitosamente
+
+
+ℹ️  4 non-blocking error(s) ignored by filter.
+
+📋 3 console message(s) logged to stderr

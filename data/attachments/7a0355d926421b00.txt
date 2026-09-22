@@ -1,0 +1,63 @@
+🎭️ [ImpuestosDiferidos-CrearNuevo] Preparando entorno para Impuestos Diferidos
+🔐 [ImpuestosDiferidos-CrearNuevo] Iniciando sesión (de***@[OCULTO])
+🔐 [LoginPage] Iniciando sesión (de***@[OCULTO])
+✅ [LoginPage] Login completado
+✅ [ImpuestosDiferidos-CrearNuevo] Sesión iniciada correctamente
+🔍 [ImpuestosDiferidos-CrearNuevo] Dashboard cargado correctamente
+🎭️ [TC09] Validación: solo Desahucio, Jubilación en $0
+ℹ️  [TC09] Verificando error en campo Jubilación
+
+======================================================================
+🎯 INICIANDO VALIDACIÓN DE SALDOS EN CERO
+======================================================================
+======================================================================
+
+📋 Navegando a Impuestos Diferidos...
+✅ Navegación completada
+
+📍 Paso 1: Seleccionando año de evaluación
+📊 [ImpuestosDiferidosPage] Paso 1 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando año de evaluación: 2024
+✅ [ImpuestosDiferidosPage] Año 2024 seleccionado
+✅ [SelectEvaluationYearStep] Paso 1 completado
+
+📍 Paso 2: Seleccionando razón del estudio
+📊 [ImpuestosDiferidosPage] Paso 2 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando razón del estudio
+ℹ️  [ImpuestosDiferidosPage] Realizando scroll al fondo de la página
+✅ [ImpuestosDiferidosPage] Scroll al fondo completado - página completamente visible
+✅ [ImpuestosDiferidosPage] Estudio disponible seleccionado
+✅ [SelectReasonStep] Paso 2 completado
+📊 [ImpuestosDiferidosPage] Paso 3 de 6 verificado
+ℹ️  [VerifyZeroBalanceValidation] Ingresando saldos contables con valores en cero
+ℹ️  [ImpuestosDiferidosPage] Ingresando saldos contables manualmente
+✅ [ImpuestosDiferidosPage] Seleccionado: No (ingreso manual)
+✅ [ImpuestosDiferidosPage] Estimación autorizada (checkbox marcado)
+ℹ️  [ImpuestosDiferidosPage] AID Final Jubilación: $0
+ℹ️  [ImpuestosDiferidosPage] AID Final Desahucio: $400
+✅ [ImpuestosDiferidosPage] Saldos manuales ingresados
+📊 [VerifyZeroBalanceValidation] Detectados 1 campo(s) con valor $0
+ℹ️  [VerifyZeroBalanceValidation] Intentando hacer clic en botón Continuar para activar validación
+⏳ [VerifyZeroBalanceValidation] Esperando validación de campos con valores en cero (3 segundos)
+ℹ️  [VerifyZeroBalanceValidation] Verificando mensajes de error para valores en cero
+
+======================================================================
+🎯 VERIFICANDO MENSAJES DE ERROR PARA VALORES EN CERO
+======================================================================
+   • esperados: 1
+======================================================================
+
+⏳ [ImpuestosDiferidosPage] Esperando a que aparezcan 1 mensaje(s) de error
+📊 [ImpuestosDiferidosPage] Número de mensajes de error encontrados: 1 (esperado: 1)
+✅ [ImpuestosDiferidosPage] 1 mensaje(s) de error presente(s)
+ℹ️  [ImpuestosDiferidosPage] Verificando que un mensaje de error sea visible
+✅ [ImpuestosDiferidosPage] Mensaje de error verificado para el campo con valor $0
+✅ [VerifyZeroBalanceValidation] Validación de saldos en cero completada exitosamente
+✅ [TC09] Validación de Jubilación en $0 completada
+
+✅ ✅ ✅ [TC09] TC09 finalizado exitosamente
+
+
+ℹ️  4 non-blocking error(s) ignored by filter.
+
+📋 3 console message(s) logged to stderr

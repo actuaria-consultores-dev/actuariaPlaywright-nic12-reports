@@ -1,0 +1,234 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: specs/ImpuestosDiferidos/crearImpuestosDifTwo.test.ts >> Verificar tabla de informes de Impuestos Diferidos y eliminar informes pendientes >> Impuestos Diferidos | [HP] | TC12: Verificar la tabla de informes pendientes (columnas, filas y total de paginación)
+- Location: tests/specs/ImpuestosDiferidos/crearImpuestosDifTwo.test.ts:214:2
+
+# Error details
+
+```
+Error: page.goto: net::ERR_ABORTED at https://act-compass-stage-proj.firebaseapp.com/dashboard/impuestos-diferidos/mis-informes-nic12
+Call log:
+  - navigating to "https://act-compass-stage-proj.firebaseapp.com/dashboard/impuestos-diferidos/mis-informes-nic12", waiting until "load"
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f1e4]:
+  - progressbar [ref=f1e5]
+  - paragraph [ref=f1e8]: Cargando…
+```
+
+# Test source
+
+```ts
+  659 | 		// Wait for the download to start
+  660 | 		const download = await downloadPromise;
+  661 | 		
+  662 | 		// Handle case where download event doesn't fire - FAIL the test
+  663 | 		if (!download) {
+  664 | 			const errorMsg = `❌ No se recibió evento de descarga dentro del tiempo esperado (timeout 30s). Verifica que el servidor no retorne HTTP 500.`;
+  665 | 			this.pageLogger.error(errorMsg);
+  666 | 			throw new Error(errorMsg);
+  667 | 		}
+  668 | 		
+  669 | 		// Verify download properties
+  670 | 		const filename = download.suggestedFilename();
+  671 | 		this.pageLogger.info(`📄 Nombre del archivo descargado: ${filename}`);
+  672 | 		
+  673 | 		expect(filename).toBeTruthy();
+  674 | 		expect(filename).toContain('.xlsx');
+  675 | 		
+  676 | 		// Create download directory if it doesn't exist
+  677 | 		const downloadDir = './tests/data/download';
+  678 | 		if (!fs.existsSync(downloadDir)) {
+  679 | 			fs.mkdirSync(downloadDir, { recursive: true });
+  680 | 			this.pageLogger.info(`📁 Directorio de descargas creado: ${downloadDir}`);
+  681 | 		}
+  682 | 
+  683 | 		// Save the file to the download directory
+  684 | 		const filePath = `${downloadDir}/${filename}`;
+  685 | 		await download.saveAs(filePath);
+  686 | 		this.pageLogger.exito(`📥 Plantilla de Impuestos Diferidos guardada: ${filePath}`);
+  687 | 
+  688 | 		// Validate the template structure and content
+  689 | 		try {
+  690 | 			this.pageLogger.info(`🔎 Validando estructura y contenido de la plantilla...`);
+  691 | 			await ExcelValidator.validatePlantillaImpuestos(filePath);
+  692 | 			this.pageLogger.exito(`✅ Plantilla de Impuestos Diferidos validada correctamente`);
+  693 | 		} catch (error) {
+  694 | 			this.pageLogger.error(`❌ Error validando plantilla: ${(error as Error).message}`);
+  695 | 			// Clean up the file before throwing
+  696 | 			if (fs.existsSync(filePath)) {
+  697 | 				fs.unlinkSync(filePath);
+  698 | 				this.pageLogger.info(`🗑️ Archivo eliminado debido a error de validación: ${filePath}`);
+  699 | 			}
+  700 | 			throw error;
+  701 | 		}
+  702 | 
+  703 | 		// Clean up the file after successful validation
+  704 | 		try {
+  705 | 			if (fs.existsSync(filePath)) {
+  706 | 				fs.unlinkSync(filePath);
+  707 | 				this.pageLogger.exito(`🗑️ Archivo de plantilla eliminado correctamente: ${filePath}`);
+  708 | 			}
+  709 | 		} catch (cleanupError) {
+  710 | 			this.pageLogger.advertencia(`⚠️ No se pudo eliminar archivo: ${(cleanupError as Error).message}`);
+  711 | 		}
+  712 | 
+  713 | 		return filename;
+  714 | 	}
+  715 | 
+  716 | 	async confirmFacturationDetails() {
+  717 | 		this.pageLogger.info('Confirmando detalles de facturación');
+  718 | 		await expect(this.page.getByText('Información de facturación')).toBeVisible();
+  719 | 		await expect(this.page.getByText('Tarifa calculada')).toBeVisible();
+  720 | 		this.pageLogger.exito('Detalles de facturación confirmados');
+  721 | 	}
+  722 | 
+  723 | 	/**
+  724 | 	 * Click the "Confirmar pedido" button on Step 6.
+  725 | 	 * This triggers the backend endpoints that are intercepted by the
+  726 | 	 * ConfirmarPedidoInterceptor (Mockoon-style mock).
+  727 | 	 */
+  728 | 	async clickConfirmarPedido() {
+  729 | 		this.pageLogger.info('Buscando botón "Confirmar pedido" en Paso 6');
+  730 | 		await expect(this.confirmarPedidoButton).toBeVisible({ timeout: 15000 });
+  731 | 		this.pageLogger.interaccion('Confirmar pedido', 'click');
+  732 | 		await this.confirmarPedidoButton.click({ timeout: SLOW_ACTION_TIMEOUT_MS });
+  733 | 		this.pageLogger.exito('Botón "Confirmar pedido" clickeado');
+  734 | 	}
+  735 | 
+  736 | 	/**
+  737 | 	 * Verify the final confirmation screen is shown after "Confirmar pedido".
+  738 | 	 * Once the workflow succeeds, the app leaves the "Paso X de 6" wizard and
+  739 | 	 * renders the delivery/process details ("Fecha de entrega aproximada",
+  740 | 	 * "Número de proceso", "Fecha de valoración").
+  741 | 	 */
+  742 | 	async verifyPedidoConfirmado(timeout: number = 30000) {
+  743 | 		this.pageLogger.info('Verificando pantalla final de confirmación del pedido');
+  744 | 		const deliveryLabel = this.page.getByText('Fecha de entrega aproximada').first();
+  745 | 		await expect(deliveryLabel).toBeVisible({ timeout });
+  746 | 		this.pageLogger.exito('Confirmación del pedido visible - fecha de entrega / proceso / valoración');
+  747 | 	}
+  748 | 
+  749 | 	// ============================================================================
+  750 | 	// Mis Informes NIC12 - Reports table (verificar tabla / eliminar pendientes)
+  751 | 	// ============================================================================
+  752 | 
+  753 | 	/**
+  754 | 	 * Navigate to the Impuestos Diferidos reports table (Mis Informes NIC12).
+  755 | 	 * @param basePath - Path of the reports table page (e.g. /dashboard/impuestos-diferidos/mis-informes-nic12)
+  756 | 	 */
+  757 | 	async navigateToMisInformesNic12(basePath: string) {
+  758 | 		this.pageLogger.navegacion(`Navegando a Mis Informes NIC12: ${basePath}`);
+> 759 | 		await this.page.goto(basePath);
+      |                   ^ Error: page.goto: net::ERR_ABORTED at https://act-compass-stage-proj.firebaseapp.com/dashboard/impuestos-diferidos/mis-informes-nic12
+  760 | 		await this.page.waitForTimeout(1000); // Let the table page start loading
+  761 | 		this.pageLogger.exito('Navegación a Mis Informes NIC12 completada');
+  762 | 	}
+  763 | 
+  764 | 	/**
+  765 | 	 * Click the pending reports tab (e.g. "Informes Pendientes") and wait for the
+  766 | 	 * reports table to render.
+  767 | 	 * @param tabName - Name of the pending tab
+  768 | 	 */
+  769 | 	async clickInformesPendientesTab(tabName: string) {
+  770 | 		this.pageLogger.info(`Seleccionando pestaña "${tabName}"`);
+  771 | 		const tab = this.page.getByRole('tab', { name: tabName });
+  772 | 		await expect(tab).toBeVisible({ timeout: 20000 });
+  773 | 		await tab.click({ timeout: ACTION_TIMEOUT_MS });
+  774 | 
+  775 | 		// Wait for the MUI table to render after switching tabs
+  776 | 		await this.reportsTable.waitFor({ state: 'visible', timeout: 20000 });
+  777 | 
+  778 | 		// The data rows load asynchronously after the tab is switched. The
+  779 | 		// pagination footer only appears once the data request completes, so wait
+  780 | 		// for it to avoid reading an empty table (the table takes time to load).
+  781 | 		this.pageLogger.espera('Esperando que los datos de la tabla carguen (footer de paginación)');
+  782 | 		try {
+  783 | 			await this.paginationDisplayedRows.waitFor({ state: 'visible', timeout: 30000 });
+  784 | 			this.pageLogger.exito('Datos de la tabla cargados (paginación visible)');
+  785 | 		} catch (e) {
+  786 | 			this.pageLogger.advertencia('No se detectó el footer de paginación - continuando (posible tabla vacía)');
+  787 | 		}
+  788 | 		this.pageLogger.exito(`Pestaña "${tabName}" seleccionada y tabla visible`);
+  789 | 	}
+  790 | 
+  791 | 	/**
+  792 | 	 * Safety guard: check whether the reports table has at least one row with a
+  793 | 	 * delete action. Returns false (instead of throwing) when the table is empty,
+  794 | 	 * so tests can be safely skipped.
+  795 | 	 */
+  796 | 	async hasPendingReports(timeout: number = 30000): Promise<boolean> {
+  797 | 		this.pageLogger.info('Verificando si existen informes pendientes');
+  798 | 		try {
+  799 | 			// NOTE: the aria-label="Eliminar" lives on the <span> wrapper, not the
+  800 | 			// <button>. Use span[aria-label="Eliminar"] button so it matches the DOM:
+  801 | 			//   <span aria-label="Eliminar"><button>…</button></span>
+  802 | 			await this.page.waitForSelector('table tbody tr:has(span[aria-label="Eliminar"] button)', { timeout });
+  803 | 			this.pageLogger.exito('Se encontraron informes pendientes para probar');
+  804 | 			return true;
+  805 | 		} catch (e) {
+  806 | 			this.pageLogger.advertencia('No se encontraron informes pendientes - tabla vacía o sin botón Eliminar');
+  807 | 			return false;
+  808 | 		}
+  809 | 	}
+  810 | 
+  811 | 	/**
+  812 | 	 * Verify the reports table column headers match the expected ones (in order).
+  813 | 	 * @param expectedColumns - Expected header texts
+  814 | 	 */
+  815 | 	async verifyTableColumns(expectedColumns: string[]) {
+  816 | 		this.pageLogger.info('Verificando columnas de la tabla de informes');
+  817 | 		await this.reportsTable.waitFor({ state: 'visible', timeout: 20000 });
+  818 | 
+  819 | 		const headerCount = await this.tableHeaders.count();
+  820 | 		this.pageLogger.info(`Columnas encontradas: ${headerCount}, esperadas: ${expectedColumns.length}`);
+  821 | 		expect(headerCount).toBe(expectedColumns.length);
+  822 | 
+  823 | 		for (let i = 0; i < expectedColumns.length; i++) {
+  824 | 			const headerText = (await this.tableHeaders.nth(i).innerText()).trim();
+  825 | 			this.pageLogger.info(`Columna ${i + 1}: "${headerText}"`);
+  826 | 			expect(headerText).toBe(expectedColumns[i]);
+  827 | 		}
+  828 | 		this.pageLogger.exito('Todas las columnas de la tabla verificadas correctamente');
+  829 | 	}
+  830 | 
+  831 | 	/**
+  832 | 	 * Extract the table data (all rows) safely.
+  833 | 	 * Waits for actual data rows to load before extracting.
+  834 | 	 * @returns Array of rows, each row being an array of cell texts
+  835 | 	 */
+  836 | 	async extractTableData(): Promise<Array<Array<string>>> {
+  837 | 		this.pageLogger.info('Extrayendo datos de la tabla de informes');
+  838 | 
+  839 | 		await this.reportsTable.waitFor({ state: 'visible', timeout: 20000 });
+  840 | 		// Brief pause for data to settle after the table appears
+  841 | 		await this.page.waitForTimeout(1500);
+  842 | 
+  843 | 		// Wait for at least one data row with a delete action to ensure data is loaded
+  844 | 		// NOTE: aria-label="Eliminar" is on the <span>, not the <button>.
+  845 | 		try {
+  846 | 			await this.page.waitForSelector('table tbody tr:has(span[aria-label="Eliminar"] button)', { timeout: 10000 });
+  847 | 			this.pageLogger.exito('Filas de datos cargadas en la tabla');
+  848 | 		} catch (e) {
+  849 | 			this.pageLogger.advertencia('No se encontraron filas con botón Eliminar - tabla puede estar vacía');
+  850 | 		}
+  851 | 
+  852 | 		const tableData = await this.reportsTable.locator('tbody tr').evaluateAll((rows: Element[]) => {
+  853 | 			return rows.map((row: Element) => {
+  854 | 				return Array.from(row.querySelectorAll('td')).map((cell: Element) => cell.textContent?.trim() || '');
+  855 | 			});
+  856 | 		});
+  857 | 
+  858 | 		this.pageLogger.info(`Se encontraron ${tableData.length} fila(s) en la tabla`);
+  859 | 		return tableData;
+```
