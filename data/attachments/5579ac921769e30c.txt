@@ -1,0 +1,177 @@
+🎭️ [ImpuestosDiferidos-CrearNuevo] Preparando entorno para Impuestos Diferidos
+🔐 [ImpuestosDiferidos-CrearNuevo] Iniciando sesión (ch***@[OCULTO])
+🔐 [LoginPage] Iniciando sesión (ch***@[OCULTO])
+✅ [LoginPage] Login completado
+✅ [ImpuestosDiferidos-CrearNuevo] Sesión iniciada correctamente
+🔍 [ImpuestosDiferidos-CrearNuevo] Dashboard cargado correctamente
+🔄 [ImpuestosDiferidos-CrearNuevo] Empresa activa "TC Test Company" - cambiando a CALCULLIS S.A. desde el menú del header
+📊 [ImpuestosDiferidos-CrearNuevo] Verificando empresa activa en el header: CALCULLIS S.A.
+✅ [ImpuestosDiferidos-CrearNuevo] Empresa activa verificada en el header
+✅ [ImpuestosDiferidos-CrearNuevo] Empresa activa: CALCULLIS S.A.
+🎭️ [TC02-DEBUG] Modo debug: captura de endpoints reales sin interceptación
+ℹ️  [TC02-DEBUG] Ejecutando flujo completo SIN interceptación - revisar log [NET] con cuerpos reales
+
+======================================================================
+🎯 INICIANDO FLUJO COMPLETO DE IMPUESTOS DIFERIDOS
+======================================================================
+   • Ano: 2024
+   • Opción saldos: Manual/Sin saldos
+======================================================================
+
+ℹ️  [ImpuestosDiferidosWorkflow] Listener de captura de ID de documento activado
+ℹ️  [ImpuestosDiferidosWorkflow] ConfirmarPedidoInterceptor activado - capturando ID de documento del flujo
+ℹ️  [ImpuestosDiferidosWorkflow] Mock activo: importación de empleados del paso 2 (POST /firestore/create)
+ℹ️  [ImpuestosDiferidosWorkflow] ══════════ MOCK "Enviar pedido" ══════════
+ℹ️  [ImpuestosDiferidosWorkflow] Contexto           : Manual/Sin saldos - inicio del flujo (paso 6 = "Confirmar pedido")
+ℹ️  [ImpuestosDiferidosWorkflow] Env                : CONFIRMAR_PEDIDO_MOCK = 'true'
+ℹ️  [ImpuestosDiferidosWorkflow] Lectura del env    : valor 'true' → el mock queda ACTIVADO
+ℹ️  [ImpuestosDiferidosWorkflow] Config del TC      : confirmarPedidoMock = { enabled: undefined, debugNetwork: true }
+ℹ️  [ImpuestosDiferidosWorkflow] Modo efectivo      : 🔬 MODO DEBUG — sin interceptación; solo se registran los endpoints reales ([NET])
+✅ [ImpuestosDiferidosWorkflow] INTERCEPTARÁ: no (modo debug, solo captura de endpoints reales)
+ℹ️  [ImpuestosDiferidosWorkflow] ═══════════════════════════════════════════
+📋 Navegando a Impuestos Diferidos...
+✅ Navegación completada
+
+📍 Paso 1: Seleccionando año de evaluación
+📊 [ImpuestosDiferidosPage] Paso 1 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando año de evaluación: 2024
+✅ [ImpuestosDiferidosPage] Año 2024 seleccionado
+✅ [SelectEvaluationYearStep] Paso 1 completado
+
+📍 Paso 2: Seleccionando razón del estudio
+📊 [ImpuestosDiferidosPage] Paso 2 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando razón del estudio
+ℹ️  [ImpuestosDiferidosPage] Realizando scroll al fondo de la página
+✅ [ImpuestosDiferidosPage] Scroll al fondo completado - página completamente visible
+✅ [ImpuestosDiferidosPage] Estudio disponible seleccionado
+⏳ [ImpuestosDiferidosPage] Esperando que "Continuar" se habilite (importación de empleados del estudio)
+✅ [ImpuestosDiferidosPage] Botón Continuar HABILITADO
+✅ [SelectReasonStep] Paso 2 completado
+
+📍 Paso 3: Configurando saldos contables
+ℹ️  [ConfigureSaldosContablesStep] Modo: Ingreso manual de saldos contables
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "TSyvlGyH6k6MQjntmYXc"
+}
+📊 [ImpuestosDiferidosPage] Paso 3 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Ingresando saldos contables manualmente
+✅ [ImpuestosDiferidosPage] Seleccionado: No (ingreso manual)
+✅ [ImpuestosDiferidosPage] Estimación autorizada (checkbox marcado)
+ℹ️  [ImpuestosDiferidosPage] AID Final Jubilación: $200
+ℹ️  [ImpuestosDiferidosPage] AID Final Desahucio: $100
+✅ [ImpuestosDiferidosPage] Saldos manuales ingresados
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "TSyvlGyH6k6MQjntmYXc"
+}
+✅ [ConfigureSaldosContablesStep] Paso 3 completado
+
+📍 Paso 4: Configurando tasa impositiva
+📊 [ImpuestosDiferidosPage] Paso 4 de 6 verificado
+ℹ️  [ConfigureTaxRateStep] Usando tasa impositiva estándar
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "TSyvlGyH6k6MQjntmYXc"
+}
+✅ [ConfigureTaxRateStep] Paso 4 completado
+
+📍 Paso 5: Verificando resumen de información
+📊 [ImpuestosDiferidosPage] Paso 5 de 6 verificado
+
+======================================================================
+🎯 VERIFICANDO RESUMEN PASO 5 - INFORMACIÓN GENERAL
+======================================================================
+   • empresa: CALCULLIS S.A.
+   • anoValoracion: 2024
+   • empleadosActivos: 1289
+   • empleadosJubilados: 8
+   • aidFinalJubilacion: 200.00
+   • aidFinalDesahucio: 100.00
+   • tipoImpuesto: estandar
+   • tasaImpuesto: 25%
+======================================================================
+
+📋 [ImpuestosDiferidosWorkflow] Tarifa obtenida del resumen (paso 5)
+{
+  "code": "28",
+  "price": 0.5712267
+}
+✅ [ImpuestosDiferidosPage] Sección de resumen visible
+ℹ️  [ImpuestosDiferidosPage] Validando campos de la tabla
+✓ [ImpuestosDiferidosPage] Empresa: esperado "CALCULLIS S.A." → actual "CALCULLIS S.A."
+✓ [ImpuestosDiferidosPage] Año de valoración: esperado "2024" → actual "2024"
+✓ [ImpuestosDiferidosPage] Empleados activos: esperado "1289" → actual "1289"
+✓ [ImpuestosDiferidosPage] Empleados jubilados: esperado "8" → actual "8"
+✓ [ImpuestosDiferidosPage] AID final jubilación: esperado "200.00" → actual "200.00"
+✓ [ImpuestosDiferidosPage] AID final desahucio: esperado "100.00" → actual "100.00"
+✓ [ImpuestosDiferidosPage] Tipo de impuesto: esperado "estandar" → actual "estandar"
+✓ [ImpuestosDiferidosPage] Tasa de impuesto: esperado "25%" → actual "25%"
+✅ [ImpuestosDiferidosPage] TODOS LOS DATOS DEL RESUMEN VALIDADOS CORRECTAMENTE
+✅ [VerifyStep5Summary] Resumen de datos validado correctamente
+ℹ️  [ImpuestosDiferidosPage] Confirmando detalles de facturación
+✅ [ImpuestosDiferidosPage] Detalles de facturación confirmados
+✅ [VerifyStep5Summary] Paso 5 completado
+
+📍 Paso 6: Confirmando pedido
+ℹ️  [ConfirmarPedidoStep] MODO DEBUG: sin interceptación - capturando endpoints reales
+
+======================================================================
+🎯 🔬 MODO DEBUG - SIN INTERCEPTACIÓN (red real)
+======================================================================
+   • hosts: todos los hosts backend (*.run.app / *.uc.gateway.dev)
+======================================================================
+
+✅ [ImpuestosDiferidosWorkflow] Logger de red con cuerpos de respuesta activado - ejecutando contra el backend real
+ℹ️  [ImpuestosDiferidosPage] Buscando botón "Confirmar pedido" en Paso 6
+👆 [ImpuestosDiferidosPage] click: Confirmar pedido
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "TSyvlGyH6k6MQjntmYXc"
+}
+✅ [ImpuestosDiferidosPage] Botón "Confirmar pedido" clickeado
+⏳ [ConfirmarPedidoStep] Esperando 45s para capturar todas las llamadas al backend real...
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://actuaria-plus-gateway-stage-xc998ok.uc.gateway.dev/firestore/upsert/TSyvlGyH6k6MQjntmYXc -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":{"estado":"pendiente","empresa":{"ruc":"1717237935001","nombre":"CALCULIS S.A."},"origin":"actuafast","id":"TSyvlGyH6k6MQjntmYXc","createdAt":{"_seconds":1795110073,"_nanoseconds":124000000},"searchIndex":[],"pasosAvanzados":{"pasosTotales":6,"pasoActual":5},"updatedAt":{"_seconds":1795110093,"_nanoseconds":758000000}},"message":"Operación exitosa","status":200}
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://actuaria-plus-gateway-stage-xc998ok.uc.gateway.dev/firestore/upsert/paso5 -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":{"tarifa":{"code":"28","quantity":1297,"price":0.5712267},"id":"paso5","datosFacturacion":{"ruc":"1717237935001","razonSocial":"CALCULIS S.A.","maximoDiaFacturacion":10,"ciudad":"QUITO","direccion":"AVENIDA 6 DE DICIEMBRE Y TOMAS DE BERLANGA edf.","nombreComercial":"CALCULLIS S.A.","telefono":"0963049810","email":"christian.martinez@actuaria.com","salesforceAccountId":"001VD00000RsTofYAF"},"ventaEfectiva":{"datosIncompletos":false,"oportunidad":"006VD00000JYwQ1YAL","estado":"Completado","requiereAnulacion":false,"numeroProceso":"136509","id":"a0FVD000003aoZF2AY","conteoProductosNic12":1,"nombre":"VE-00152985"},"ordenDeCompra":false,"updatedAt":{"_seconds":1795110093,"_nanoseconds":886000000}},"message":"Operación exitosa","status":200}
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] POST https://k.clarity.ms/collect -> 204
+ℹ️  [ImpuestosDiferidosWorkflow]   body: 
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] POST https://actuaria-plus-gateway-stage-xc998ok.uc.gateway.dev/firestore/query/custom -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":[{"cobranzas":"cobranzas@actuaria.com","comprobantesElectronicos":"comprobantes-e@actuaria.com","id":"buzonesRespuesta","createdAt":{"_seconds":1793460639,"_nanoseconds":383000000},"updatedAt":{"_seconds":1793460639,"_nanoseconds":383000000}},{"items":[{"codigo":"CG-DIR-01","etiqueta":"Presidente Ejecutivo / CEO","grupo":"ALTA_DIRECCION","grupoEtiqueta":"Alta dirección","ordenGrupo":1,"ordenEnGrupo":1,"estado":"activo"},{"codigo":"CG-DIR-02","etiqueta":"Gerente General","grupo":"ALTA_DIRECCION","grupoEtiqueta":"Alta dirección","ordenGrupo":1,"ordenEnGrupo":2,"estado":"activo"},{"codigo":"CG-DIR-03","etiqueta":"Director General","grupo":"ALTA_DIRECCION","grupoEtiqueta":"Alta dirección","ordenGrupo":1,"ordenEnGrupo":3,"estado":"activo"},{"codigo":"CG-DIR-04","etiqueta":"Director de Área","grupo":"ALTA_DIRECCION","grupoEtiqueta":"Alta dirección","ordenGrupo":1,"ordenEnGrupo":4,"estado":"activo"},{"codigo":"CG-DIR-05","etiqueta":"Socio / Accionista","grupo":"ALTA_DIRECCION","grupoEtiqueta":"Alta dirección","ordenGrupo":1,"ordenEnGrupo":5,"estado":"activo"},{"codigo":"CG-DIR-06","etiqueta":"Miembro de Directorio","grupo":"ALTA_DIRECCION","grupoEtiqueta":"Alta dirección","ordenGrupo":1,"ordenEnGrupo":6,"estado":"activo"},{"codigo":"CG-FIN-01","etiqueta":"Gerente Financiero","grupo":"FINANZAS_ADMINISTRACION","grupoEtiqueta":"Finanzas y administración","ordenGrupo":2,"ordenEnGrupo":1,"estado":"activo"},{"codigo":"CG-FIN-02","etiqueta":"Gerente Administrativo","grupo":"FINANZAS_ADMINISTRACION","grupoEtiqueta":"Finanzas y administración","ordenGrupo":2,"ordenEnGrupo":2,"estado":"activo"},{"codigo":"CG-FIN-03","etiqueta":"Contralor","grupo":"FINANZAS_ADMINISTRACION","grupoEtiqueta":"Finanzas y administración","ordenGrupo":2,"ordenEnGrupo":3,"estado":"activo"},{"codigo":"CG-FIN-04","etiqueta":"Jefe Financiero","grupo":"FINANZAS_ADMINISTRACION","grupoEtiqueta":"Finanzas y administración","ordenGrupo":2,"ordenEnGrupo":4,"estado":"activo"},{"codigo":"CG-FIN-05","… [truncado, 34026 chars]
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] POST https://actuaria-plus-gateway-stage-xc998ok.uc.gateway.dev/firestore/query/custom -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":[{"cobranzas":"cobranzas@actuaria.com","comprobantesElectronicos":"comprobantes-e@actuaria.com","id":"buzonesRespuesta","createdAt":{"_seconds":1793460639,"_nanoseconds":383000000},"updatedAt":{"_seconds":1793460639,"_nanoseconds":383000000}},{"items":[{"codigo":"CG-DIR-01","etiqueta":"Presidente Ejecutivo / CEO","grupo":"ALTA_DIRECCION","grupoEtiqueta":"Alta dirección","ordenGrupo":1,"ordenEnGrupo":1,"estado":"activo"},{"codigo":"CG-DIR-02","etiqueta":"Gerente General","grupo":"ALTA_DIRECCION","grupoEtiqueta":"Alta dirección","ordenGrupo":1,"ordenEnGrupo":2,"estado":"activo"},{"codigo":"CG-DIR-03","etiqueta":"Director General","grupo":"ALTA_DIRECCION","grupoEtiqueta":"Alta dirección","ordenGrupo":1,"ordenEnGrupo":3,"estado":"activo"},{"codigo":"CG-DIR-04","etiqueta":"Director de Área","grupo":"ALTA_DIRECCION","grupoEtiqueta":"Alta dirección","ordenGrupo":1,"ordenEnGrupo":4,"estado":"activo"},{"codigo":"CG-DIR-05","etiqueta":"Socio / Accionista","grupo":"ALTA_DIRECCION","grupoEtiqueta":"Alta dirección","ordenGrupo":1,"ordenEnGrupo":5,"estado":"activo"},{"codigo":"CG-DIR-06","etiqueta":"Miembro de Directorio","grupo":"ALTA_DIRECCION","grupoEtiqueta":"Alta dirección","ordenGrupo":1,"ordenEnGrupo":6,"estado":"activo"},{"codigo":"CG-FIN-01","etiqueta":"Gerente Financiero","grupo":"FINANZAS_ADMINISTRACION","grupoEtiqueta":"Finanzas y administración","ordenGrupo":2,"ordenEnGrupo":1,"estado":"activo"},{"codigo":"CG-FIN-02","etiqueta":"Gerente Administrativo","grupo":"FINANZAS_ADMINISTRACION","grupoEtiqueta":"Finanzas y administración","ordenGrupo":2,"ordenEnGrupo":2,"estado":"activo"},{"codigo":"CG-FIN-03","etiqueta":"Contralor","grupo":"FINANZAS_ADMINISTRACION","grupoEtiqueta":"Finanzas y administración","ordenGrupo":2,"ordenEnGrupo":3,"estado":"activo"},{"codigo":"CG-FIN-04","etiqueta":"Jefe Financiero","grupo":"FINANZAS_ADMINISTRACION","grupoEtiqueta":"Finanzas y administración","ordenGrupo":2,"ordenEnGrupo":4,"estado":"activo"},{"codigo":"CG-FIN-05","… [truncado, 34026 chars]
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] POST https://k.clarity.ms/collect -> 204
+ℹ️  [ImpuestosDiferidosWorkflow]   body: 
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] POST https://actuaria-plus-gateway-stage-xc998ok.uc.gateway.dev/workflow/ingresar-pedido -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":{"detalleWorkflow":"projects/act-compass-stage-proj/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage","executionName":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/058fb262-eab2-410f-b676-d35b6a32fdc5","mensaje":"OK","statusExecution":"CREATED","respuesta":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/058fb262-eab2-410f-b676-d35b6a32fdc5"},"message":"Operación exitosa","status":200}
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] PUT https://actuaria-plus-gateway-stage-xc998ok.uc.gateway.dev/firestore/upsert/paso6 -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":{"workflow":{"executionName":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/058fb262-eab2-410f-b676-d35b6a32fdc5","statusExecution":"CREATED","detalleWorkflow":"projects/act-compass-stage-proj/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage","mensaje":"OK","respuesta":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/058fb262-eab2-410f-b676-d35b6a32fdc5"},"id":"paso6","updatedAt":{"_seconds":1795110099,"_nanoseconds":541000000}},"message":"Operación exitosa","status":200}
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] GET https://actuaria-plus-gateway-stage-xc998ok.uc.gateway.dev/workflow/status?ambiente=parametros_globales_pruebas&name=projects%2F72574958900%2Flocations%2Fus-central1%2Fworkflows%2Fwf_creacion_pedido_estandar_stage%2Fexecutions%2F058fb262-eab2-410f-b676-d35b6a32fdc5 -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":{"detalleWorkflow":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/058fb262-eab2-410f-b676-d35b6a32fdc5","executionName":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/058fb262-eab2-410f-b676-d35b6a32fdc5","mensaje":"OK","statusExecution":"ACTIVE","respuesta":{}},"message":"Operación exitosa","status":200}
+ℹ️  [ImpuestosDiferidosWorkflow] [NET] GET https://actuaria-plus-gateway-stage-xc998ok.uc.gateway.dev/workflow/status?ambiente=parametros_globales_pruebas&name=projects%2F72574958900%2Flocations%2Fus-central1%2Fworkflows%2Fwf_creacion_pedido_estandar_stage%2Fexecutions%2F058fb262-eab2-410f-b676-d35b6a32fdc5 -> 200
+ℹ️  [ImpuestosDiferidosWorkflow]   body: {"ok":true,"data":{"detalleWorkflow":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/058fb262-eab2-410f-b676-d35b6a32fdc5","executionName":"projects/72574958900/locations/us-central1/workflows/wf_creacion_pedido_estandar_stage/executions/058fb262-eab2-410f-b676-d35b6a32fdc5","mensaje":"OK","statusExecution":"ACTIVE","respuesta":{}},"message":"Operación exitosa","status":200}
+
+✅ ✅ ✅ [ConfirmarPedidoStep] DEBUG COMPLETADO - revisa el log [NET] con los endpoints y cuerpos reales
+
+
+✅ ✅ ✅ [ImpuestosDiferidosWorkflow] ✅ FLUJO COMPLETO DE IMPUESTOS DIFERIDOS FINALIZADO EXITOSAMENTE
+
+
+======================================================================
+🎯 RESUMEN DE EJECUCIÓN
+======================================================================
+   • pasos: 6 pasos completados (con confirmación de pedido)
+   • saldosContables: Manual/Sin saldos
+   • plantillaDescargada: No
+   • tasaImpositiva: Estándar
+======================================================================
+
+✅ [TC02-DEBUG] Captura de endpoints reales completada
+
+✅ ✅ ✅ [TC02-DEBUG] TC02-DEBUG finalizado exitosamente
+
+
+ℹ️  7 non-blocking error(s) ignored by filter.
+
+📋 5 console message(s) logged to stderr

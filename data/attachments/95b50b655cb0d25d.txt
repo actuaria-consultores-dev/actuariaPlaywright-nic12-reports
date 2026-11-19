@@ -1,0 +1,154 @@
+🎭️ [ImpuestosDiferidos-CrearNuevo] Preparando entorno para Impuestos Diferidos
+🔐 [ImpuestosDiferidos-CrearNuevo] Iniciando sesión (ch***@[OCULTO])
+🔐 [LoginPage] Iniciando sesión (ch***@[OCULTO])
+✅ [LoginPage] Login completado
+✅ [ImpuestosDiferidos-CrearNuevo] Sesión iniciada correctamente
+🔍 [ImpuestosDiferidos-CrearNuevo] Dashboard cargado correctamente
+🔄 [ImpuestosDiferidos-CrearNuevo] Empresa activa "TC Test Company" - cambiando a CALCULLIS S.A. desde el menú del header
+📊 [ImpuestosDiferidos-CrearNuevo] Verificando empresa activa en el header: CALCULLIS S.A.
+✅ [ImpuestosDiferidos-CrearNuevo] Empresa activa verificada en el header
+✅ [ImpuestosDiferidos-CrearNuevo] Empresa activa: CALCULLIS S.A.
+🎭️ [TC04] Carga de archivo válido de saldos contables
+ℹ️  [TC04] Ejecutando flujo con archivo válido
+
+======================================================================
+🎯 INICIANDO FLUJO COMPLETO DE IMPUESTOS DIFERIDOS
+======================================================================
+   • Ano: 2025
+   • Opción saldos: Con archivo
+======================================================================
+
+ℹ️  [ImpuestosDiferidosWorkflow] Listener de captura de ID de documento activado
+ℹ️  [ImpuestosDiferidosWorkflow] ConfirmarPedidoInterceptor activado - capturando ID de documento del flujo
+ℹ️  [ImpuestosDiferidosWorkflow] Mock activo: importación de empleados del paso 2 (POST /firestore/create)
+ℹ️  [ImpuestosDiferidosWorkflow] ══════════ MOCK "Enviar pedido" ══════════
+ℹ️  [ImpuestosDiferidosWorkflow] Contexto           : Con archivo - inicio del flujo (paso 6 = "Confirmar pedido")
+ℹ️  [ImpuestosDiferidosWorkflow] Env                : CONFIRMAR_PEDIDO_MOCK = 'true'
+ℹ️  [ImpuestosDiferidosWorkflow] Lectura del env    : valor 'true' → el mock queda ACTIVADO
+ℹ️  [ImpuestosDiferidosWorkflow] Config del TC      : confirmarPedidoMock = { enabled: true, debugNetwork: false }
+ℹ️  [ImpuestosDiferidosWorkflow] Modo efectivo      : 🟢 MOCK ACTIVADO — los endpoints del paso final serán interceptados (el backend real NO se toca)
+✅ [ImpuestosDiferidosWorkflow] INTERCEPTARÁ: sí
+ℹ️  [ImpuestosDiferidosWorkflow] ═══════════════════════════════════════════
+📋 Navegando a Impuestos Diferidos...
+✅ Navegación completada
+
+📍 Paso 1: Seleccionando año de evaluación
+📊 [ImpuestosDiferidosPage] Paso 1 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando año de evaluación: 2025
+✅ [ImpuestosDiferidosPage] Año 2025 seleccionado
+✅ [SelectEvaluationYearStep] Paso 1 completado
+
+📍 Paso 2: Seleccionando razón del estudio
+📊 [ImpuestosDiferidosPage] Paso 2 de 6 verificado
+ℹ️  [ImpuestosDiferidosPage] Seleccionando razón del estudio
+ℹ️  [ImpuestosDiferidosPage] Realizando scroll al fondo de la página
+✅ [ImpuestosDiferidosPage] Scroll al fondo completado - página completamente visible
+✅ [ImpuestosDiferidosPage] Estudio disponible seleccionado
+⏳ [ImpuestosDiferidosPage] Esperando que "Continuar" se habilite (importación de empleados del estudio)
+✅ [ImpuestosDiferidosPage] Botón Continuar HABILITADO
+✅ [SelectReasonStep] Paso 2 completado
+
+📍 Paso 3: Configurando saldos contables
+ℹ️  [ConfigureSaldosContablesStep] Modo: Subida de archivo de saldos contables
+ℹ️  [ConfigureSaldosContablesStep]   • Archivo: impuestosdif2.xlsx
+ℹ️  [ConfigureSaldosContablesStep]   • Descargar plantilla: SÍ
+ℹ️  [ConfigureSaldosContablesStep]   • Validación esperada: Backend valida estructura y contenido del Excel
+📋 [ImpuestosDiferidosWorkflow] ID de documento capturado del flujo
+{
+  "reportDocumentId": "f7ozDyDSUGB2sguedxiw"
+}
+📊 [ImpuestosDiferidosPage] Paso 3 de 6 verificado
+ℹ️  [ConfigureSaldosContablesStep] Paso 3.1 - Seleccionando opción "Sí" para saldos contables
+ℹ️  [ImpuestosDiferidosPage] Seleccionando opción "Sí tengo saldos contables"...
+ℹ️  [ImpuestosDiferidosPage] Acción: Hace visible el botón "Descargar Plantilla" y controles de carga
+✅ [ImpuestosDiferidosPage] ✅ Opción "Sí" seleccionada - Botón de descarga y controles de carga están ahora disponibles
+✅ [ConfigureSaldosContablesStep] Opción "Sí" seleccionada - mostrando controles de carga
+
+======================================================================
+🎯 Paso 3.2 - DESCARGANDO Y VALIDANDO PLANTILLA
+======================================================================
+   • tipoValidacion: Estructura de archivo Excel
+   • columnasRequeridas: Nombre,Cédula,Saldo acumulado AID JP,Saldo acumulado AID BD
+======================================================================
+
+ℹ️  [ImpuestosDiferidosPage] 🔍 Buscando botón de descarga: "Descargar Plantilla"
+ℹ️  [ImpuestosDiferidosPage] ✅ Botón de descarga está visible
+ℹ️  [ImpuestosDiferidosPage] 🖱️ Haciendo clic en botón de descarga...
+ℹ️  [ImpuestosDiferidosPage] 📄 Nombre del archivo descargado: plantilla.xlsx
+ℹ️  [ImpuestosDiferidosPage] 📁 Directorio de descargas creado: ./tests/data/download
+✅ [ImpuestosDiferidosPage] 📥 Plantilla de Impuestos Diferidos guardada: ./tests/data/download/plantilla.xlsx
+ℹ️  [ImpuestosDiferidosPage] 🔎 Validando estructura y contenido de la plantilla...
+📂 Archivo encontrado: ./tests/data/download/plantilla.xlsx
+📊 Hojas encontradas: Saldos por empleado
+🔍 Validando estructura de plantilla de Impuestos Diferidos...
+📋 Total de columnas encontradas: 4
+📋 Headers: Nombre, Cédula, Saldo acumulado AID JP, Saldo acumulado AID BD
+✅ Headers encontrados: 4 columnas
+  ✅ Nombre encontrado
+  ✅ Cédula encontrado
+  ✅ Saldo acumulado AID JP encontrado
+  ✅ Saldo acumulado AID BD encontrado
+✅ 4/4 columnas requeridas encontradas
+✅ Se encontraron 1367 filas (incluyendo header)
+✅ Plantilla de Impuestos Diferidos validada correctamente
+📊 Estructura de plantilla verificada - lista para datos de saldos
+✅ [ImpuestosDiferidosPage] ✅ Plantilla de Impuestos Diferidos validada correctamente
+✅ [ImpuestosDiferidosPage] 🗑️ Archivo de plantilla eliminado correctamente: ./tests/data/download/plantilla.xlsx
+✅ [ConfigureSaldosContablesStep] ✅ Plantilla descargada y validada exitosamente
+ℹ️  [ConfigureSaldosContablesStep] Estructura verificada: 4 columnas requeridas presentes
+⏳ [ConfigureSaldosContablesStep] Pausa de 1.5 segundos para estabilización de UI
+
+======================================================================
+🎯 Paso 3.3 - SUBIENDO ARCHIVO VÁLIDO DE SALDOS CONTABLES
+======================================================================
+   • archivo: impuestosdif2.xlsx
+   • validaciónEsperada: Backend valida estructura y datos
+======================================================================
+
+ℹ️  [ImpuestosDiferidosPage] 📤 Iniciando carga de archivo de saldos contables
+ℹ️  [ImpuestosDiferidosPage]    • Nombre del archivo: impuestosdif2.xlsx
+ℹ️  [ImpuestosDiferidosPage]    • Ruta local: ./tests/data/documents/impuestosdif2.xlsx
+ℹ️  [ImpuestosDiferidosPage]    • Destino: Servidor para validación de estructura y datos
+📁 [ImpuestosDiferidosPage] Cargando archivo: impuestosdif2.xlsx
+✅ [ImpuestosDiferidosPage] ✅ Archivo "impuestosdif2.xlsx" cargado en el formulario - Enviando al servidor para validación
+✅ [ConfigureSaldosContablesStep] Archivo "impuestosdif2.xlsx" subido al servidor
+⏳ [ConfigureSaldosContablesStep] Esperando 5 segundos para procesamiento del archivo en el servidor
+ℹ️  [ConfigureSaldosContablesStep] Verificando estado del botón Continuar (archivo válido)
+
+======================================================================
+🎯 VERIFICANDO ESTADO DEL BOTÓN
+======================================================================
+   • estado: HABILITADO
+======================================================================
+
+ℹ️  [ImpuestosDiferidosPage] Estado esperado: HABILITADO
+❌ [TC04] TC04 falló
+   Detalle: expect(locator).toBeEnabled() failed
+
+Locator:  getByRole('button', { name: 'Continuar' })
+Expected: enabled
+Received: disabled
+Timeout:  10000ms
+
+Call log:
+  - Expect "toBeEnabled" with timeout 10000ms
+  - waiting for getByRole('button', { name: 'Continuar' })
+    24 × locator resolved to <button disabled tabindex="-1" type="button" class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-i21fp">…</button>
+       - unexpected value "disabled"
+
+
+===== POSIBLE CAUSA RAÍZ (console/red detectada en la página) =====
+  URL detectada: https://act-compass-stage-proj.firebaseapp.com/dashboard/impuestos-diferidos/nueva-nic12/f7ozDyDSUGB2sguedxiw
+  • CONSOLE ERROR → Error al obtener URL de Storage: FirebaseError: Firebase Storage: Object 'companies_logos/UA6nfxdRUdXbuuaXBa4B.png' does not exist. (storage/object-not-found) (×2)
+  • CONSOLE ERROR → AxiosError$1 (×2)
+  • PAGE ERROR → AxiosError$1
+  • RED (4xx/5xx) → GET https://actuaria-plus-gateway-stage-xc998ok.uc.gateway.dev/empresas/analysis_data/1423456783001 → 404
+  • RED (4xx/5xx) → POST https://actuaria-plus-gateway-stage-xc998ok.uc.gateway.dev/actuafast/saldos_contables_by_ruc → 404
+  • RED (4xx/5xx) → POST https://actuaria-plus-gateway-stage-xc998ok.uc.gateway.dev/procesar-plantillas/subir → 500
+  • CONSOLE → Error al obtener URL de Storage: FirebaseError: Firebase Storage: Object 'companies_logos/UA6nfxdRUdXbuuaXBa4B.png' does not exist. (storage/object-not-found) (×2)
+  • CONSOLE → AxiosError$1 (×2)
+===================================================================
+
+ℹ️  8 non-blocking error(s) ignored by filter.
+
+📋 7 console message(s) logged to stderr

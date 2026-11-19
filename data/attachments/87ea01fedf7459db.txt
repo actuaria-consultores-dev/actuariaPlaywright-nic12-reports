@@ -1,0 +1,7 @@
+
+===== POSIBLE CAUSA RAÍZ (console/red detectada en la página) =====
+  URL detectada: https://act-compass-stage-proj.firebaseapp.com/dashboard/impuestos-diferidos/nueva-nic12/gximoEMyBFLGEC20sjwe
+  • CONSOLE ERROR → Error al obtener URL de Storage: FirebaseError: Firebase Storage: Object 'companies_logos/UA6nfxdRUdXbuuaXBa4B.png' does not exist. (storage/object-not-found) (×2)
+  • RED (4xx/5xx) → GET https://actuaria-plus-gateway-stage-xc998ok.uc.gateway.dev/empresas/analysis_data/1423456783001 → 404
+  • CONSOLE → Error al obtener URL de Storage: FirebaseError: Firebase Storage: Object 'companies_logos/UA6nfxdRUdXbuuaXBa4B.png' does not exist. (storage/object-not-found) (×2)
+===================================================================

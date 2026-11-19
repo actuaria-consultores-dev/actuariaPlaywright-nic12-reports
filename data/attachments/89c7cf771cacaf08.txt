@@ -1,0 +1,239 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: specs/ImpuestosDiferidos/crearImpuestosDif.test.ts >> Verificar creacion de Impuestos Diferidos >> Impuestos Diferidos | [HP] | TC04: Usuario puede completar flujo con archivo válido de saldos contables
+- Location: tests/specs/ImpuestosDiferidos/crearImpuestosDif.test.ts:181:2
+
+# Error details
+
+```
+Error: expect(locator).toBeEnabled() failed
+
+Locator:  getByRole('button', { name: 'Continuar' })
+Expected: enabled
+Received: disabled
+Timeout:  10000ms
+
+Call log:
+  - Expect "toBeEnabled" with timeout 10000ms
+  - waiting for getByRole('button', { name: 'Continuar' })
+    24 × locator resolved to <button disabled tabindex="-1" type="button" class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-i21fp">…</button>
+       - unexpected value "disabled"
+
+```
+
+```yaml
+- button "Continuar" [disabled]
+```
+
+# Test source
+
+```ts
+  340 | 		
+  341 | 		// Wait for page to update continue button state
+  342 | 		await this.page.waitForTimeout(500);
+  343 | 		
+  344 | 		this.pageLogger.exito('Configuración completada - campos vacíos con autorización');
+  345 | 	}
+  346 | 
+  347 | 	/**
+  348 | 	 * Select "La empresa no registra saldos" option
+  349 | 	 */
+  350 | 	async selectNoSaldosRegistrados() {
+  351 | 		this.pageLogger.info('Seleccionando opción: "La empresa no registra saldos"');
+  352 | 		await this.noSaldosRegistradosRatio.check({ timeout: ACTION_TIMEOUT_MS });
+  353 | 		this.pageLogger.exito('Opción "La empresa no registra saldos" seleccionada');
+  354 | 		
+  355 | 		// Wait for page to process the selection
+  356 | 		await this.page.waitForTimeout(1000);
+  357 | 	}
+  358 | 
+  359 | 	/**
+  360 | 	 * Upload accounting balances file (Sí saldos)
+  361 | 	 * NOTE: Should be called AFTER selectYesSaldos() has been invoked
+  362 | 	 * This method uploads the Excel file containing the actual saldos data to the server
+  363 | 	 */
+  364 | 	async uploadSaldosFile(fileName: string, timeout: number = 150000) {
+  365 | 		const filePath = `./tests/data/documents/${fileName}`;
+  366 | 		this.pageLogger.info(`📤 Iniciando carga de archivo de saldos contables`);
+  367 | 		this.pageLogger.info(`   • Nombre del archivo: ${fileName}`);
+  368 | 		this.pageLogger.info(`   • Ruta local: ${filePath}`);
+  369 | 		this.pageLogger.info(`   • Destino: Servidor para validación de estructura y datos`);
+  370 | 		
+  371 | 		// NOTE: "Si" should already be selected by selectYesSaldos() or plantilla download flow
+  372 | 		// Just upload the file here
+  373 | 		this.pageLogger.cargaArchivo(fileName);
+  374 | 		await this.fileUploadInput.setInputFiles(filePath, { timeout: SLOW_ACTION_TIMEOUT_MS });
+  375 | 		
+  376 | 		this.pageLogger.exito(`✅ Archivo "${fileName}" cargado en el formulario - Enviando al servidor para validación`);
+  377 | 	}
+  378 | 
+  379 | 	/**
+  380 | 	 * Remove uploaded file and reset form state
+  381 | 	 * This is used in multi-attempt workflows to clear previous file and upload a different one
+  382 | 	 */
+  383 | 	async removeUploadedFile() {
+  384 | 		this.pageLogger.info('🗑️  Removiendo archivo cargado anteriormente');
+  385 | 		this.pageLogger.info('Acción: Limpiando estado del formulario para nuevo intento de carga');
+  386 | 		const removeButton = this.page.getByLabel('Quitar archivo');
+  387 | 		
+  388 | 		// Verify button exists before clicking
+  389 | 		if (await removeButton.isVisible()) {
+  390 | 			await removeButton.click({ timeout: ACTION_TIMEOUT_MS });
+  391 | 			this.pageLogger.exito('✅ Archivo removido exitosamente del formulario');
+  392 | 			
+  393 | 			// Wait for UI to update after removal
+  394 | 			this.pageLogger.espera('Esperando 1.5 segundos para actualización de UI');
+  395 | 			await this.page.waitForTimeout(1500);
+  396 | 			this.pageLogger.exito('Formulario listo para siguiente intento de carga');
+  397 | 		} else {
+  398 | 			this.pageLogger.error('❌ Botón "Quitar archivo" no visible - verifiquemos el estado del formulario');
+  399 | 		}
+  400 | 	}
+  401 | 
+  402 | 	/**
+  403 | 	 * Verify error message is visible
+  404 | 	 */
+  405 | 	async verifyErrorMessage(message: string) {
+  406 | 		this.pageLogger.info(`Verificando mensaje de error: "${message}"`);
+  407 | 		await expect(this.page.getByText(message).first()).toBeVisible({ timeout: 60000 });
+  408 | 		this.pageLogger.exito('Mensaje de error verificado');
+  409 | 	}
+  410 | 
+  411 | 	/**
+  412 | 	 * Wait for button to transition to the expected state
+  413 | 	 * This is essential for async validation - waits for backend to process file and update button state
+  414 | 	 * Used in multi-attempt file upload workflows to verify dynamic state changes
+  415 | 	 */
+  416 | 	async waitForButtonState(shouldBeEnabled: boolean, timeout: number = 30000) {
+  417 | 		const expectedState = shouldBeEnabled ? 'HABILITADO' : 'DESHABILITADO';
+  418 | 		const stateEmoji = shouldBeEnabled ? '🟢' : '🔴';
+  419 | 		
+  420 | 		this.pageLogger.info(`⏳ Esperando que el botón Continuar cambie a estado: ${stateEmoji} ${expectedState}`);
+  421 | 		this.pageLogger.info(`   • Timeout máximo: ${timeout}ms`);
+  422 | 		this.pageLogger.info(`   • Descripción: Validación asincrónica del servidor procesando archivo`);
+  423 | 		
+  424 | 		if (shouldBeEnabled) {
+  425 | 			await expect(this.continueButton).toBeEnabled({ timeout });
+  426 | 			this.pageLogger.exito(`✅ Botón Continuar se HABILITÓ correctamente - Archivo validado por servidor`);
+  427 | 		} else {
+  428 | 			await expect(this.continueButton).toBeDisabled({ timeout });
+  429 | 			this.pageLogger.exito(`✅ Botón Continuar se DESHABILITÓ correctamente - Archivo rechazado por servidor`);
+  430 | 		}
+  431 | 	}
+  432 | 
+  433 | 	/**
+  434 | 	 * Verify continue button state
+  435 | 	 */
+  436 | 	async verifyContinueButtonState(shouldBeEnabled: boolean) {
+  437 | 		this.pageLogger.resumen('VERIFICANDO ESTADO DEL BOTÓN', { estado: shouldBeEnabled ? 'HABILITADO' : 'DESHABILITADO' });
+  438 | 		if (shouldBeEnabled) {
+  439 | 			this.pageLogger.info('Estado esperado: HABILITADO');
+> 440 | 			await expect(this.continueButton).toBeEnabled();
+      |                                      ^ Error: expect(locator).toBeEnabled() failed
+  441 | 			this.pageLogger.exito('Botón Continuar está HABILITADO');
+  442 | 		} else {
+  443 | 			this.pageLogger.info('Estado esperado: DESHABILITADO');
+  444 | 			await expect(this.continueButton).not.toBeEnabled();
+  445 | 			this.pageLogger.exito('Botón Continuar está DESHABILITADO');
+  446 | 		}
+  447 | 	}
+  448 | 
+  449 | 	/**
+  450 | 	 * Verify zero balance error messages
+  451 | 	 * Validates that error "Debe ser un número mayor a 0" appears below fields with $0 value
+  452 | 	 * @param expectedCount - Number of expected errors (1 or 2)
+  453 | 	 */
+  454 | 	async verifyZeroBalanceErrors(expectedCount: number = 2) {
+  455 | 		this.pageLogger.resumen('VERIFICANDO MENSAJES DE ERROR PARA VALORES EN CERO', { esperados: expectedCount });
+  456 | 		
+  457 | 		const errorMessage = 'Debe ser un número mayor a 0';
+  458 | 		const errorLocators = this.page.locator(`text=${errorMessage}`);
+  459 | 		
+  460 | 		// Wait for the expected number of error messages to appear
+  461 | 		this.pageLogger.espera(`Esperando a que aparezcan ${expectedCount} mensaje(s) de error`);
+  462 | 		let errorCount = 0;
+  463 | 		let attempts = 0;
+  464 | 		const maxAttempts = 20; // Try up to 20 times (2 seconds total with 100ms wait)
+  465 | 		
+  466 | 		while (errorCount < expectedCount && attempts < maxAttempts) {
+  467 | 			errorCount = await errorLocators.count();
+  468 | 			if (errorCount < expectedCount) {
+  469 | 				await this.page.waitForTimeout(100);
+  470 | 				attempts++;
+  471 | 			}
+  472 | 		}
+  473 | 		
+  474 | 		this.pageLogger.verificacion(`Número de mensajes de error encontrados: ${errorCount} (esperado: ${expectedCount})`);
+  475 | 		await expect(errorCount).toBe(expectedCount);
+  476 | 		this.pageLogger.exito(`${expectedCount} mensaje(s) de error presente(s)`);
+  477 | 		
+  478 | 		if (expectedCount === 2) {
+  479 | 			// Verify both errors (TC07: both fields are $0)
+  480 | 			this.pageLogger.info('Verificando error en campo AID Jubilación Patronal');
+  481 | 			await expect(errorLocators.first()).toBeVisible({ timeout: 5000 });
+  482 | 			this.pageLogger.exito('Error verificado para Jubilación');
+  483 | 			
+  484 | 			this.pageLogger.info('Verificando error en campo AID Bonificación por Desahucio');
+  485 | 			await expect(errorLocators.nth(1)).toBeVisible({ timeout: 5000 });
+  486 | 			this.pageLogger.exito('Error verificado para Desahucio');
+  487 | 			
+  488 | 			this.pageLogger.exito('Ambos mensajes de error "Debe ser un número mayor a 0" verificados');
+  489 | 		} else if (expectedCount === 1) {
+  490 | 			// Verify single error (TC08/TC09: one field is $0)
+  491 | 			this.pageLogger.info('Verificando que un mensaje de error sea visible');
+  492 | 			await expect(errorLocators.first()).toBeVisible({ timeout: 5000 });
+  493 | 			this.pageLogger.exito('Mensaje de error verificado para el campo con valor $0');
+  494 | 		}
+  495 | 	}
+  496 | 
+  497 | 	/**
+  498 | 	 * Verify empty field error messages
+  499 | 	 * Validates that error messages appear for empty fields
+  500 | 	 * Used for TC17 - verifies both fields show the expected error
+  501 | 	 * @param expectedMessage - The error message to look for (from test data)
+  502 | 	 * @param expectedCount - Expected number of error messages (default 2)
+  503 | 	 */
+  504 | 	async verifyEmptyFieldErrors(expectedMessage: string, expectedCount: number = 2) {
+  505 | 		this.pageLogger.resumen('VERIFICANDO MENSAJES DE ERROR PARA CAMPOS VACÍOS', {});
+  506 | 		
+  507 | 		// Wait a moment for error messages to fully render
+  508 | 		await this.page.waitForTimeout(800);
+  509 | 		
+  510 | 		this.pageLogger.info(`Buscando ${expectedCount} mensajes: "${expectedMessage}"`);
+  511 | 		const errorLocators = this.page.locator(`text=${expectedMessage}`);
+  512 | 		
+  513 | 		// Verify we have the expected number of error messages
+  514 | 		const errorCount = await errorLocators.count();
+  515 | 		this.pageLogger.verificacion(`Número de mensajes de error encontrados: ${errorCount}`);
+  516 | 		
+  517 | 		await expect(errorCount).toBe(expectedCount);
+  518 | 		this.pageLogger.exito(`${expectedCount} mensajes de error presente(s)`);
+  519 | 		
+  520 | 		// Verify both errors are visible
+  521 | 		this.pageLogger.info('Verificando error en campo AID Jubilación Patronal');
+  522 | 		await expect(errorLocators.first()).toBeVisible({ timeout: 5000 });
+  523 | 		this.pageLogger.exito('Error verificado para Jubilación');
+  524 | 		
+  525 | 		this.pageLogger.info('Verificando error en campo AID Bonificación por Desahucio');
+  526 | 		await expect(errorLocators.nth(1)).toBeVisible({ timeout: 5000 });
+  527 | 		this.pageLogger.exito('Error verificado para Desahucio');
+  528 | 		
+  529 | 		this.pageLogger.exito(`Ambos mensajes de error "${expectedMessage}" verificados`);
+  530 | 	}
+  531 | 
+  532 | 	/**
+  533 | 	 * Select tax rate option (Standard or Specific)
+  534 | 	 * @param useStandard - true for standard rate, false for specific rate
+  535 | 	 */
+  536 | 	async selectTaxRateOption(useStandard: boolean) {
+  537 | 		this.pageLogger.info(`Seleccionando opción de tasa: ${useStandard ? 'Estándar' : 'Específico'}`);
+  538 | 		
+  539 | 		if (useStandard) {
+  540 | 			await this.standardTaxRateRadio.click({ timeout: ACTION_TIMEOUT_MS });
+```

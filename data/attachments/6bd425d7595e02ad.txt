@@ -1,0 +1,17 @@
+[LOG] Using Firebase Production Services for environment: stage [5:43:42 PM]
+[LOG] trackEvent view_login {timestamp: 2026-11-19T17:43:44.823Z} [5:43:44 PM]
+[LOG] Using Firebase Production Services for environment: stage [5:43:46 PM]
+[INFO] Versión del cliente {modulo: host, version: 2.0.3, build: 2026-11-18T22:42:15.447Z} [5:43:47 PM]
+[INFO] Versión del cliente {modulo: impuestos-diferidos, version: 1.1.2, build: 2026-11-17T22:05:50.627Z} [5:44:01 PM]
+❌ CONSOLE ERROR: AxiosError$1
+❌ CONSOLE ERROR: AxiosError$1
+❌ CONSOLE ERROR: AxiosError$1
+❌ CONSOLE ERROR: AxiosError$1
+
+⚠️  2 error(s) detected during test execution:
+  1. AxiosError$1
+  2. AxiosError$1
+
+⚠️  2 error(s) detected during test execution:
+  1. AxiosError$1
+  2. AxiosError$1
